@@ -14,7 +14,9 @@ module.exports = async (req, res) => {
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  let apiKey = req.headers['authorization'] || req.headers['x-api-key'] || '';
+  const rawAuthHeader = req.headers['authorization'] || '';
+  const rawXApiKey = req.headers['x-api-key'] || '';
+  let apiKey = rawAuthHeader || rawXApiKey || '';
   apiKey = apiKey.trim();
   
   if (apiKey.toLowerCase().startsWith('apikey ')) {
@@ -23,8 +25,22 @@ module.exports = async (req, res) => {
     apiKey = apiKey.substring(7).trim();
   }
   
-  if (apiKey !== process.env.SEPAY_API_KEY) {
-    return res.status(401).json({ error: 'Unauthorized' });
+  const expectedKey = (process.env.SEPAY_API_KEY || '').trim();
+  
+  if (apiKey !== expectedKey) {
+    return res.status(401).json({
+      error: 'Unauthorized',
+      debug: {
+        rawAuthHeader: rawAuthHeader,
+        rawXApiKey: rawXApiKey,
+        parsedKeyLength: apiKey.length,
+        parsedKeyFirst3: apiKey.substring(0, 3),
+        parsedKeyLast3: apiKey.substring(apiKey.length - 3),
+        expectedKeyLength: expectedKey.length,
+        expectedKeyFirst3: expectedKey.substring(0, 3),
+        expectedKeyLast3: expectedKey.substring(expectedKey.length - 3)
+      }
+    });
   }
 
   try {
