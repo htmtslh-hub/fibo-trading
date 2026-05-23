@@ -1,7 +1,23 @@
 const { google } = require('googleapis');
 
 async function shareDriveFolder(email, role = 'reader') {
-  const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+  let credentials;
+  try {
+    let rawJson = process.env.GOOGLE_SERVICE_ACCOUNT;
+    if (!rawJson) {
+      throw new Error('GOOGLE_SERVICE_ACCOUNT environment variable is not defined.');
+    }
+    if (rawJson.startsWith('"') && rawJson.endsWith('"')) {
+      rawJson = JSON.parse(rawJson);
+    }
+    credentials = typeof rawJson === 'object' ? rawJson : JSON.parse(rawJson);
+    if (credentials.private_key) {
+      credentials.private_key = credentials.private_key.replace(/\\n/g, '\n');
+    }
+  } catch (err) {
+    console.error('Error parsing GOOGLE_SERVICE_ACCOUNT:', err.message);
+    throw err;
+  }
   const FOLDER_ID = process.env.GOOGLE_DRIVE_FOLDER_ID;
 
   const auth = new google.auth.GoogleAuth({
