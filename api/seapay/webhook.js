@@ -2,6 +2,16 @@ const { getAdminDb } = require('../firebase-admin');
 const { shareDriveFolder } = require('../google-drive');
 
 module.exports = async (req, res) => {
+  if (req.method === 'GET') {
+    const vercelApiKey = process.env.SEPAY_API_KEY || '';
+    return res.json({
+      diagnostic: 'SePay Webhook GET Endpoint active',
+      vercelKeyLength: vercelApiKey.length,
+      vercelKeyFirstChar: vercelApiKey.charAt(0) || 'empty',
+      vercelKeyLastChar: vercelApiKey.charAt(vercelApiKey.length - 1) || 'empty'
+    });
+  }
+
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   let apiKey = req.headers['authorization'] || req.headers['x-api-key'] || '';
