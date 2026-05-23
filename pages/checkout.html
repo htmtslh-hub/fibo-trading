@@ -140,7 +140,7 @@ async function handleCheckout(e) {
     customer: { name: name, email: email, phone: phone },
     items: Cart.get(),
     total: Cart.total(),
-    orderNumber: 'SN' + Date.now()
+    orderNumber: 'FB' + Date.now()
   };
 
   await DataLayer.createOrder(orderData);

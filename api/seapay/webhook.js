@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 
     if (!content) return res.json({ success: false, message: 'No content' });
 
-    const match = content.match(/SN\d+/);
+    const match = content.match(/FB\d+/);
     if (!match) return res.json({ success: false, message: 'No order number found' });
 
     const orderNumber = match[0];
