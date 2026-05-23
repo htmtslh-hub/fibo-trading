@@ -1,0 +1,39 @@
+Ten khoa hoc: Pro trading
+Nội dung khóa học
+0. Bạn hãy đi đúng lộ trình chi tiết này để đạt kết quả nhanh nhất		
+1. Khái Quát Về Cấu Trúc Thị Trường – Phần 1		
+2. Khái Quát Về Cấu Trúc Thị Trường – Phần 2		
+3. Xác Định Cấu Trúc Thị Trường		
+4. Chọn Vùng Mua Bán – Vùng Mua Bán Khác Vùng Bò Gấu Như Thế Nào?		
+5. Thực Hành Đọc Thấu Cấu Trúc Thị Trường		
+6. Bắt Đầu Xây Dựng Quy Tắc Vào Lệnh		
+7. Điểm Vào Lệnh – Dừng Lỗ Theo Quy Tắc Ở Đâu?		
+8. Yếu Tố Bên Trong 1		
+9. Yếu Tố Bên Trong 2		
+10. Yếu Tố Bên Trong 3		
+11. Tổng Kết Các Yếu Tố Bên Trong		
+12. Tại Sao Nên Luyện Tập Điểm Vào Này?		
+13. Yếu Tố Bên Ngoài 1		
+14. Yếu Tố Bên Ngoài 2		
+15. Yếu Tố Bên Ngoài 3		
+16. Tổng Kết Các Yếu Tố Bên Ngoài		
+17. Điểm Vào Lệnh Sớm		
+18. Điểm Vào Lệnh Muộn – Limit		
+19. Chốt Lời		
+20. Các Kịch Bản – Gặp Là Vào		
+21. Cách Thống Kê, Xây Dựng Bộ Quy Tắc Vào Lệnh 1		
+21.1. Tải Template Dùng Để Thống Kê, Backtest, Nhật Ký Giao Dịch		
+22. Cách Thống Kê, Xây Dựng Bộ Quy Tắc Vào Lệnh – Phần 2		
+22.1. Một số bài tập mẫu tốt từ mọi người		
+23. Backtest Kiểm Chứng Kiểm Chứng Phương Pháp		
+23.1. Tải Công Cụ Backtest Để Thực Hành		
+23.2. Hướng dẫn sử dụng Phần mềm Backtest		
+24. Thực Hành Backtest Thực Tế		
+25. (Bonus) Hướng Dẫn Thêm Về Đọc Nến & Cấu Trúc Thị Trường		
+26. (New) Công cụ tự động tính toán khối lượng vào lệnh để quản lý vốn		
+27. Giải Đáp Các Câu Hỏi Thường Gặp		
+28. Tổng Kết		
+29. (Update) Kết Hợp Điểm Vào Lệnh Với Bộ EMA Cực Kỳ Hiệu Quả		
+30. (Update) Những Điểm Vào Lệnh Hiệu Quả Khác Kết Hợp Luật Bò Gấu Và EMA		
+31. (Update) Làm Sao Xác Định Cản Gần Dễ Bị Phá Và Khó Bị Phá, Mô Hình Tỉ Lệ Cao Hơn		
+32. (Mới) Những Điểm Cần Lưu Ý Trong Phương Pháp Giúp Giảm Lệnh Xấu

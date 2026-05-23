@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Tư Duy Trader | Fibo</title>
+  <meta name="description" content="Chia sẻ tư duy, mindset và bài học thực tế trên hành trình trở thành trader chuyên nghiệp.">
+  <link rel="canonical" href="https://fibo.vn/pages/blog">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=9">
+  <style>
+    .blog-card { display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: center; }
+    .blog-card-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 14px; }
+    .blog-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 10px; }
+    .blog-meta span { font-size: 12px; color: var(--text-3); }
+    .blog-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; transition: var(--transition); }
+    .blog-title:hover { color: var(--accent); }
+    .blog-excerpt { font-size: 14px; color: var(--text-2); line-height: 1.7; }
+    @media (max-width: 768px) {
+      .blog-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Fi<span>bo</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="blog.html" style="color:#fff;">Bài viết</a></li>
+    <li><a href="courses.html">Khóa học</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-icon" onclick="openSearch()" title="Tìm kiếm (Ctrl+K)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <a href="cart.html" class="cart-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge hidden" id="cartBadge">0</span>
+    </a>
+    <a href="course-detail.html?id=1" class="btn btn-primary btn-sm">Khóa học Pro</a>
+  </div>
+  <div class="nav-mobile-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:40px;padding-bottom:40px;">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-label">Blog</div>
+      <h1 class="section-title">Tư Duy Trader</h1>
+      <p class="section-desc">Những bài học, góc nhìn và tư duy giúp bạn phát triển trên hành trình giao dịch.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap" style="display:flex;flex-direction:column;gap:48px;">
+
+    <!-- CATEGORY: Kiến thức nền tảng -->
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;" class="reveal">
+        <span class="dot"></span>
+        <h2 style="font-size:18px;font-weight:800;">Kiến thức nền tảng</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <a href="blog-post.html?slug=thuat-ngu-trading" style="text-decoration:none;color:inherit;">
+          <div class="card reveal" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/159581/dictionary-reference-book-learning-meaning-159581.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Thuật ngữ Trading" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Kiến thức</span><span>•</span><span>10 phút</span></div><div class="blog-title">Từ điển Trading — Giải thích 40+ thuật ngữ trader cần biết</div><p class="blog-excerpt">TP, SL, R:R, Pip, Lot, Leverage, FOMO, Backtest... Tổng hợp và giải thích tất cả thuật ngữ quan trọng.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=tai-sao-95-trader-thua" style="text-decoration:none;color:inherit;">
+          <div class="card reveal" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/11972899/pexels-photo-11972899.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="95% trader thua" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Kiến thức</span><span>•</span><span>7 phút</span></div><div class="blog-title">Tại sao 95% trader thua lỗ — Phân tích nguyên nhân thực sự</div><p class="blog-excerpt">Con số 95% được trích dẫn khắp nơi. Nhưng ít ai phân tích tại sao — và 5% còn lại làm gì khác?</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=risk-reward-ratio" style="text-decoration:none;color:inherit;">
+          <div class="card reveal reveal-delay-1" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/6669396/pexels-photo-6669396.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Risk Reward" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Kiến thức</span><span>•</span><span>7 phút</span></div><div class="blog-title">Risk:Reward — Chỉ số quyết định bạn lãi hay lỗ dài hạn</div><p class="blog-excerpt">R:R quan trọng hơn winrate. Với R:R 1:2, bạn chỉ cần winrate 34% để hòa vốn.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=quan-ly-von" style="text-decoration:none;color:inherit;">
+          <div class="card reveal reveal-delay-2" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/9755383/pexels-photo-9755383.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Quản lý vốn" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Kiến thức</span><span>•</span><span>7 phút</span></div><div class="blog-title">Quản lý vốn — Kỹ năng sống còn mà trader hay bỏ qua</div><p class="blog-excerpt">Yếu tố thực sự quyết định bạn tồn tại hay bị loại khỏi thị trường không phải winrate — mà là cách quản lý rủi ro.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=don-gian-la-hieu-qua" style="text-decoration:none;color:inherit;">
+          <div class="card reveal" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/11021567/pexels-photo-11021567.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Đơn giản" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Kiến thức</span><span>•</span><span>6 phút</span></div><div class="blog-title">Đơn giản không có nghĩa là kém hiệu quả</div><p class="blog-excerpt">Complexity Bias khiến trader tin rằng phức tạp hơn = tốt hơn. Thực tế hoàn toàn ngược lại.</p></div>
+          </div></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CATEGORY: Tâm lý giao dịch -->
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;" class="reveal">
+        <span class="dot"></span>
+        <h2 style="font-size:18px;font-weight:800;">Tâm lý giao dịch</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <a href="blog-post.html?slug=so-vao-lenh" style="text-decoration:none;color:inherit;">
+          <div class="card reveal" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/16127344/pexels-photo-16127344.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Sợ vào lệnh" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Tâm lý</span><span>•</span><span>7 phút</span></div><div class="blog-title">Vì sao bạn sợ vào lệnh — và cách thoát khỏi vòng xoáy</div><p class="blog-excerpt">Sợ stoploss, mất niềm tin, liên tục thay đổi chiến lược — gốc rễ nằm ở sự thiếu nhất quán.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=fomo-trong-trading" style="text-decoration:none;color:inherit;">
+          <div class="card reveal reveal-delay-1" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/1299086/pexels-photo-1299086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="FOMO" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Tâm lý</span><span>•</span><span>7 phút</span></div><div class="blog-title">FOMO — Kẻ thù thầm lặng phá hủy tài khoản</div><p class="blog-excerpt">Nỗi sợ bỏ lỡ cơ hội khiến bạn phá vỡ mọi quy tắc. Nó biến trader có kỷ luật thành người đánh bạc.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=overtrading-ke-giet-tai-khoan" style="text-decoration:none;color:inherit;">
+          <div class="card reveal reveal-delay-2" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/136351/pexels-photo-136351.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Overtrading" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Tâm lý</span><span>•</span><span>6 phút</span></div><div class="blog-title">Overtrading — Kẻ giết tài khoản âm thầm nhất</div><p class="blog-excerpt">Không chỉ là trade quá nhiều. Nó là triệu chứng của nhiều vấn đề tâm lý sâu hơn.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=trading-trong-vung" style="text-decoration:none;color:inherit;">
+          <div class="card reveal" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/6932519/pexels-photo-6932519.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Trading in the Zone" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Tâm lý</span><span>•</span><span>7 phút</span></div><div class="blog-title">Trading in the Zone — Trạng thái tâm lý đỉnh cao</div><p class="blog-excerpt">Thực hiện hệ thống tự động, không cảm xúc, không do dự — mục tiêu mọi trader nên hướng tới.</p></div>
+          </div></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CATEGORY: Mindset & Kỷ luật -->
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;" class="reveal">
+        <span class="dot"></span>
+        <h2 style="font-size:18px;font-weight:800;">Mindset & Kỷ luật</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <a href="blog-post.html?slug=ky-luat-hon-chien-luoc" style="text-decoration:none;color:inherit;">
+          <div class="card reveal" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/7302890/pexels-photo-7302890.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Kỷ luật" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Mindset</span><span>•</span><span>6 phút</span></div><div class="blog-title">Kỷ luật quan trọng hơn chiến lược — Tại sao và làm thế nào</div><p class="blog-excerpt">Phương pháp trung bình + kỷ luật tuyệt vời sẽ luôn thắng phương pháp tuyệt vời + kỷ luật tệ.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=chi-so-aq" style="text-decoration:none;color:inherit;">
+          <div class="card reveal reveal-delay-1" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/8728634/pexels-photo-8728634.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Chỉ số AQ" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Mindset</span><span>•</span><span>6 phút</span></div><div class="blog-title">Chỉ số AQ — Yếu tố quyết định thành bại trong trading</div><p class="blog-excerpt">Không phải IQ hay EQ, mà chính khả năng vượt khó mới quyết định ai thành công.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=kien-nhan-la-loi-the" style="text-decoration:none;color:inherit;">
+          <div class="card reveal reveal-delay-2" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/37113105/pexels-photo-37113105.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Kiên nhẫn" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Mindset</span><span>•</span><span>7 phút</span></div><div class="blog-title">Kiên nhẫn — Lợi thế cạnh tranh lớn nhất của trader</div><p class="blog-excerpt">Trong một thế giới ai cũng muốn kết quả nhanh, kiên nhẫn trở thành lợi thế cạnh tranh hiếm có.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=hoc-tu-sai-lam" style="text-decoration:none;color:inherit;">
+          <div class="card reveal" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/7952673/pexels-photo-7952673.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Học từ sai lầm" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Tư duy</span><span>•</span><span>7 phút</span></div><div class="blog-title">Học từ sai lầm — Cách duy nhất để tiến bộ</div><p class="blog-excerpt">Mọi trader profitable đều biến mỗi lần thua thành data có thể hành động.</p></div>
+          </div></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CATEGORY: Tư duy & Thực hành -->
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;" class="reveal">
+        <span class="dot"></span>
+        <h2 style="font-size:18px;font-weight:800;">Tư duy & Thực hành</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <a href="blog-post.html?slug=tu-do-tai-chinh" style="text-decoration:none;color:inherit;">
+          <div class="card reveal" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/8052179/pexels-photo-8052179.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Tự do tài chính" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Tư duy</span><span>•</span><span>6 phút</span></div><div class="blog-title">Tự do tài chính — Đích đến thực sự của trader</div><p class="blog-excerpt">Tiền bạc chỉ là công cụ. Mục đích cuối cùng mà mọi trader hướng tới chính là sự tự do.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=vay-no-va-don-bay" style="text-decoration:none;color:inherit;">
+          <div class="card reveal reveal-delay-1" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/7111954/pexels-photo-7111954.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Vay nợ" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Tài chính</span><span>•</span><span>6 phút</span></div><div class="blog-title">Vay nợ và đòn bẩy — Con dao hai lưỡi của trader</div><p class="blog-excerpt">Vay nợ để trade = bán tài nguyên tương lai. Trong trading, đây gần như luôn là ý tưởng tệ.</p></div>
+          </div></div>
+        </a>
+        <a href="blog-post.html?slug=nhat-ky-giao-dich" style="text-decoration:none;color:inherit;">
+          <div class="card reveal reveal-delay-2" style="padding:20px;"><div class="blog-card">
+            <img src="https://images.pexels.com/photos/6093/hands-notebook-notes-view.jpg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Nhật ký giao dịch" class="blog-card-img">
+            <div><div class="blog-meta"><span class="dot"></span><span>Thực hành</span><span>•</span><span>6 phút</span></div><div class="blog-title">Nhật ký giao dịch — Vũ khí bí mật của trader chuyên nghiệp</div><p class="blog-excerpt">Công cụ phân biệt rõ nhất giữa trader nghiệp dư và chuyên nghiệp. Loại bỏ selective memory bias.</p></div>
+          </div></div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom" style="margin-top:0;padding-top:0;border:none;">&copy; 2024 Fibo. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../js/cart-badge.js?v=1"></script>
+<script src="../js/search.js?v=1"></script>
+<script src="../js/animations.js?v=1"></script>
+<script type="module" src="../js/analytics.js?v=1"></script>
+</body>
+</html>

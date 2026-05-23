@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Trading — Chi Tiết Khóa Học | Fibo</title>
+  <meta name="description" content="Khóa học Pro Trading: 33 bài học xây dựng hệ thống giao dịch hoàn chỉnh. Cấu trúc thị trường, điểm vào lệnh, backtest, quản lý vốn.">
+  <link rel="canonical" href="https://fibo.vn/pages/course-detail?id=1">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=8">
+  <style>
+    .curriculum-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-3);
+      transition: var(--transition);
+    }
+    .curriculum-item:hover { border-color: var(--accent-dark); }
+    .curriculum-num {
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-glow);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .curriculum-title { font-size: 14px; color: var(--text-2); }
+    .curriculum-list { display: flex; flex-direction: column; gap: 8px; }
+    .detail-sidebar {
+      position: sticky;
+      top: 80px;
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .detail-grid { grid-template-columns: 1fr; }
+      .detail-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Fi<span>bo</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="blog.html">Bài viết</a></li>
+    <li><a href="courses.html" style="color:#fff;">Khóa học</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-icon" onclick="openSearch()" title="Tìm kiếm (Ctrl+K)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <a href="cart.html" class="cart-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge hidden" id="cartBadge">0</span>
+    </a>
+    <a href="course-detail.html?id=1" class="btn btn-primary btn-sm">Khóa học Pro</a>
+  </div>
+  <div class="nav-mobile-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<section class="section" style="padding-top:40px;">
+  <div class="wrap">
+    <div class="detail-grid">
+      <!-- LEFT: Course Info -->
+      <div>
+        <div class="reveal">
+          <div class="badge badge-accent mb-16">Bestseller</div>
+          <h1 style="font-family:'Exo 2',sans-serif;font-size:clamp(28px,4vw,40px);font-weight:900;margin-bottom:16px;">Pro Trading</h1>
+          <p style="color:var(--text-2);font-size:16px;line-height:1.7;margin-bottom:24px;">Khóa học giúp bạn xây dựng hệ thống giao dịch hoàn chỉnh từ A đến Z. Từ đọc cấu trúc thị trường, xác định điểm vào lệnh, đến backtest kiểm chứng và quản lý vốn chuyên nghiệp.</p>
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:32px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+              <span style="font-size:13px;color:var(--text-2);">33 bài học</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span style="font-size:13px;color:var(--text-2);">Truy cập trọn đời</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              <span style="font-size:13px;color:var(--text-2);">500+ học viên</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="color:var(--warn);font-size:14px;">★</span>
+              <span style="font-size:13px;color:var(--text-2);">4.9/5 đánh giá</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHAT YOU'LL LEARN -->
+        <div class="reveal" style="margin-bottom:40px;">
+          <h2 style="font-family:'Exo 2',sans-serif;font-size:22px;font-weight:800;margin-bottom:20px;">Bạn sẽ học được gì?</h2>
+          <div class="grid-2" style="gap:12px;">
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" style="margin-top:3px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:14px;color:var(--text-2);">Đọc và xác định cấu trúc thị trường chính xác</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" style="margin-top:3px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:14px;color:var(--text-2);">Xây dựng bộ quy tắc vào lệnh rõ ràng</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" style="margin-top:3px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:14px;color:var(--text-2);">Xác định điểm vào, dừng lỗ, chốt lời</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" style="margin-top:3px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:14px;color:var(--text-2);">Backtest kiểm chứng phương pháp trước khi trade thật</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" style="margin-top:3px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:14px;color:var(--text-2);">Quản lý vốn và tính khối lượng vào lệnh</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" style="margin-top:3px;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:14px;color:var(--text-2);">Kết hợp EMA và nhận diện mô hình tỉ lệ cao</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CURRICULUM -->
+        <div class="reveal">
+          <h2 style="font-family:'Exo 2',sans-serif;font-size:22px;font-weight:800;margin-bottom:20px;">Nội dung chi tiết</h2>
+          <div class="curriculum-list">
+            <div class="curriculum-item"><div class="curriculum-num">0</div><div class="curriculum-title">Lộ trình chi tiết để đạt kết quả nhanh nhất</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">1</div><div class="curriculum-title">Khái Quát Về Cấu Trúc Thị Trường – Phần 1</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">2</div><div class="curriculum-title">Khái Quát Về Cấu Trúc Thị Trường – Phần 2</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">3</div><div class="curriculum-title">Xác Định Cấu Trúc Thị Trường</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">4</div><div class="curriculum-title">Chọn Vùng Mua Bán – Khác Vùng Bò Gấu Như Thế Nào?</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">5</div><div class="curriculum-title">Thực Hành Đọc Thấu Cấu Trúc Thị Trường</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">6</div><div class="curriculum-title">Bắt Đầu Xây Dựng Quy Tắc Vào Lệnh</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">7</div><div class="curriculum-title">Điểm Vào Lệnh – Dừng Lỗ Theo Quy Tắc</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">8</div><div class="curriculum-title">Yếu Tố Bên Trong 1</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">9</div><div class="curriculum-title">Yếu Tố Bên Trong 2</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">10</div><div class="curriculum-title">Yếu Tố Bên Trong 3</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">11</div><div class="curriculum-title">Tổng Kết Các Yếu Tố Bên Trong</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">12</div><div class="curriculum-title">Tại Sao Nên Luyện Tập Điểm Vào Này?</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">13</div><div class="curriculum-title">Yếu Tố Bên Ngoài 1</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">14</div><div class="curriculum-title">Yếu Tố Bên Ngoài 2</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">15</div><div class="curriculum-title">Yếu Tố Bên Ngoài 3</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">16</div><div class="curriculum-title">Tổng Kết Các Yếu Tố Bên Ngoài</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">17</div><div class="curriculum-title">Điểm Vào Lệnh Sớm</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">18</div><div class="curriculum-title">Điểm Vào Lệnh Muộn – Limit</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">19</div><div class="curriculum-title">Chốt Lời</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">20</div><div class="curriculum-title">Các Kịch Bản – Gặp Là Vào</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">21</div><div class="curriculum-title">Cách Thống Kê, Xây Dựng Bộ Quy Tắc Vào Lệnh 1</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">22</div><div class="curriculum-title">Cách Thống Kê, Xây Dựng Bộ Quy Tắc Vào Lệnh 2</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">23</div><div class="curriculum-title">Backtest Kiểm Chứng Phương Pháp</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">24</div><div class="curriculum-title">Thực Hành Backtest Thực Tế</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">25</div><div class="curriculum-title">(Bonus) Đọc Nến & Cấu Trúc Thị Trường</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">26</div><div class="curriculum-title">(New) Công Cụ Tính Khối Lượng Vào Lệnh</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">27</div><div class="curriculum-title">Giải Đáp Câu Hỏi Thường Gặp</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">28</div><div class="curriculum-title">Tổng Kết</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">29</div><div class="curriculum-title">(Update) Kết Hợp Điểm Vào Lệnh Với EMA</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">30</div><div class="curriculum-title">(Update) Điểm Vào Hiệu Quả Kết Hợp Luật Bò Gấu Và EMA</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">31</div><div class="curriculum-title">(Update) Xác Định Cản Gần & Mô Hình Tỉ Lệ Cao</div></div>
+            <div class="curriculum-item"><div class="curriculum-num">32</div><div class="curriculum-title">(Mới) Những Điểm Lưu Ý Giúp Giảm Lệnh Xấu</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sidebar -->
+      <div class="detail-sidebar">
+        <div class="glass reveal" style="padding:28px;">
+          <div style="width:100%;aspect-ratio:16/9;border-radius:var(--radius-sm);overflow:hidden;margin-bottom:20px;">
+            <img src="https://images.pexels.com/photos/5833752/pexels-photo-5833752.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Pro Trading" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="margin-bottom:20px;">
+            <span style="font-family:'Exo 2',sans-serif;font-size:36px;font-weight:900;color:#fff;">1.399.000</span><span style="color:var(--text-3);font-size:14px;">đ</span> <span style="font-size:14px;color:var(--text-3);text-decoration:line-through;margin-left:8px;">5.000.000đ</span>
+            <span style="color:var(--text-3);font-size:14px;">đ</span>
+          </div>
+          <button class="btn btn-primary btn-lg" style="width:100%;margin-bottom:12px;" onclick="addToCart()">Thêm vào giỏ hàng</button>
+          <a href="cart.html" class="btn btn-outline btn-lg" style="width:100%;">Mua ngay</a>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-3);">Số bài học</span>
+              <span style="color:var(--text);">33 bài</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-3);">Truy cập</span>
+              <span style="color:var(--text);">Trọn đời</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-3);">Cập nhật</span>
+              <span style="color:var(--text);">Miễn phí</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-3);">Công cụ đi kèm</span>
+              <span style="color:var(--text);">3 tools</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-3);">Cộng đồng</span>
+              <span style="color:var(--text);">Telegram</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom" style="margin-top:0;padding-top:0;border:none;">
+      &copy; 2024 Fibo. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="../js/cart-badge.js?v=1"></script>
+<script src="../js/search.js?v=1"></script>
+<script src="../js/animations.js?v=1"></script>
+<script type="module" src="../js/analytics.js?v=1"></script>
+<script>
+function addToCart() {
+  var added = Cart.add('1', 'Pro Trading', 1399000);
+  if (!added) {
+    alert('Khóa học đã có trong giỏ hàng!');
+  } else {
+    alert('Đã thêm vào giỏ hàng!');
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibo — Kiến Thức Giao Dịch & Đầu Tư</title>
+  <meta name="description" content="Chia sẻ kiến thức, tư duy và phương pháp giao dịch thực chiến. Xây dựng hệ thống trading có lợi nhuận ổn định.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fibo — Kiến Thức Giao Dịch & Đầu Tư">
+  <meta property="og:description" content="Chia sẻ kiến thức, tư duy và phương pháp giao dịch thực chiến.">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="canonical" href="https://fibo.vn.vn/">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=9">
+  <style>
+    .featured-post { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
+    .featured-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 18px; }
+    .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .post-card-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 14px 14px 0 0; }
+    .post-card-body { padding: 20px; }
+    .post-card-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+    .post-card-excerpt { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+    .post-card-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .post-card-meta span { font-size: 11px; color: var(--text-3); }
+    .course-banner { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+    @media (max-width: 1024px) {
+      .featured-post { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .post-grid { grid-template-columns: 1fr; }
+      .course-banner { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Fibo",
+    "url": "https://fibo.vn.vn",
+    "description": "Chia sẻ kiến thức, tư duy và phương pháp giao dịch thực chiến."
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <a href="/" class="nav-logo">Fi<span>bo</span></a>
+  <ul class="nav-links">
+    <li><a href="/" style="color:#fff;">Trang chủ</a></li>
+    <li><a href="pages/blog.html">Bài viết</a></li>
+    <li><a href="pages/courses.html">Khóa học</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-icon" onclick="openSearch()" title="Tìm kiếm (Ctrl+K)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <a href="pages/cart.html" class="cart-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge hidden" id="cartBadge">0</span>
+    </a>
+    <a href="pages/course-detail.html?id=1" class="btn btn-primary btn-sm">Khóa học Pro</a>
+  </div>
+  <div class="nav-mobile-toggle" id="mobileToggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </div>
+</nav>
+
+<!-- HERO / FEATURED POST -->
+<section class="hero" style="padding:60px 0 80px;">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <a href="pages/blog-post.html?slug=so-vao-lenh" style="text-decoration:none;color:inherit;">
+      <div class="featured-post reveal">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <span class="dot"></span>
+            <span style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:2px;font-weight:600;">Bài viết nổi bật</span>
+          </div>
+          <h1 style="font-family:'Exo 2',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:900;line-height:1.15;margin-bottom:16px;">Vì sao bạn sợ vào lệnh — và cách thoát khỏi vòng xoáy</h1>
+          <p style="color:var(--text-2);font-size:15px;line-height:1.7;margin-bottom:24px;max-width:480px;">Sợ stoploss, mất niềm tin vào phương pháp, liên tục thay đổi chiến lược — đây là vòng xoáy Rat Race mà hầu hết trader đều trải qua.</p>
+          <span class="btn btn-outline btn-sm">Đọc bài viết</span>
+        </div>
+        <img src="https://images.pexels.com/photos/16127344/pexels-photo-16127344.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Sợ vào lệnh" class="featured-img">
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- LATEST POSTS -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-label">Bài viết mới</div>
+      <h2 class="section-title">Kiến thức & Tư duy Trader</h2>
+    </div>
+    <div class="post-grid">
+      <a href="pages/blog-post.html?slug=tu-do-tai-chinh" style="text-decoration:none;color:inherit;">
+        <div class="card reveal reveal-delay-1">
+          <img src="https://images.pexels.com/photos/8052179/pexels-photo-8052179.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Tự do tài chính" class="post-card-img">
+          <div class="post-card-body">
+            <div class="post-card-meta"><span class="dot"></span><span>Tư duy</span><span>•</span><span>5 phút</span></div>
+            <div class="post-card-title">Tự do tài chính — Đích đến thực sự của trader</div>
+            <p class="post-card-excerpt">Tiền bạc chỉ là công cụ. Mục đích cuối cùng mà mọi trader hướng tới chính là sự tự do.</p>
+          </div>
+        </div>
+      </a>
+      <a href="pages/blog-post.html?slug=chi-so-aq" style="text-decoration:none;color:inherit;">
+        <div class="card reveal reveal-delay-2">
+          <img src="https://images.pexels.com/photos/8728634/pexels-photo-8728634.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Chỉ số AQ" class="post-card-img">
+          <div class="post-card-body">
+            <div class="post-card-meta"><span class="dot"></span><span>Mindset</span><span>•</span><span>4 phút</span></div>
+            <div class="post-card-title">Chỉ số AQ — Yếu tố quyết định thành bại</div>
+            <p class="post-card-excerpt">Không phải IQ hay EQ, mà chính khả năng vượt khó mới quyết định ai thành công.</p>
+          </div>
+        </div>
+      </a>
+      <a href="pages/blog-post.html?slug=vay-no-va-don-bay" style="text-decoration:none;color:inherit;">
+        <div class="card reveal reveal-delay-3">
+          <img src="https://images.pexels.com/photos/7111954/pexels-photo-7111954.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Vay nợ" class="post-card-img">
+          <div class="post-card-body">
+            <div class="post-card-meta"><span class="dot"></span><span>Tài chính</span><span>•</span><span>5 phút</span></div>
+            <div class="post-card-title">Vay nợ và đòn bẩy — Con dao hai lưỡi</div>
+            <p class="post-card-excerpt">Vay giống đòn bẩy: xác suất thắng không đổi, nhưng kết quả được khuếch đại.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="reveal">
+      <a href="pages/blog.html" class="btn btn-outline">Xem tất cả bài viết</a>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE BANNER -->
+<section class="section" style="background:var(--bg-2);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-60px;right:10%;width:350px;height:350px;background:radial-gradient(circle,rgba(200,245,96,.045) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="wrap">
+    <div class="glass reveal" style="padding:40px;">
+      <div class="course-banner">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span class="dot"></span>
+            <span style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:2px;font-weight:600;">Khóa học</span>
+          </div>
+          <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:900;margin-bottom:12px;">Pro Trading — 33 bài học thực chiến</h2>
+          <p style="color:var(--text-2);font-size:14px;line-height:1.7;max-width:500px;">Xây dựng hệ thống giao dịch hoàn chỉnh từ A-Z. Cấu trúc thị trường, điểm vào lệnh, backtest, quản lý vốn.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <div style="font-family:'Exo 2',sans-serif;font-size:28px;font-weight:900;color:#fff;">1.399.000đ <span style="font-size:14px;color:var(--text-3);text-decoration:line-through;font-weight:400;">5.000.000đ</span></div>
+          <a href="pages/course-detail.html?id=1" class="btn btn-primary btn-lg">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE POSTS -->
+<section class="section" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;top:30%;left:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(100,180,255,.04) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-label">Thêm bài viết</div>
+      <h2 class="section-title">Đọc thêm</h2>
+    </div>
+    <div class="post-grid" style="grid-template-columns:repeat(2,1fr);">
+      <a href="pages/blog-post.html?slug=don-gian-la-hieu-qua" style="text-decoration:none;color:inherit;">
+        <div class="card reveal" style="padding:20px;">
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;">
+            <img src="https://images.pexels.com/photos/11021567/pexels-photo-11021567.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Đơn giản" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;">
+            <div>
+              <div class="post-card-meta"><span class="dot"></span><span>Kiến thức</span></div>
+              <div class="post-card-title">Đơn giản không có nghĩa là kém hiệu quả</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="pages/blog-post.html?slug=so-vao-lenh" style="text-decoration:none;color:inherit;">
+        <div class="card reveal reveal-delay-1" style="padding:20px;">
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;">
+            <img src="https://images.pexels.com/photos/16127344/pexels-photo-16127344.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Sợ vào lệnh" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;">
+            <div>
+              <div class="post-card-meta"><span class="dot"></span><span>Tâm lý</span></div>
+              <div class="post-card-title">Vì sao bạn sợ vào lệnh — và cách thoát vòng xoáy</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Fi<span>bo</span></div>
+        <p class="footer-desc">Chia sẻ kiến thức giao dịch thực chiến. Xây dựng hệ thống, kiểm chứng bằng dữ liệu, giao dịch có kỷ luật.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Nội dung</div>
+        <ul class="footer-links">
+          <li><a href="pages/blog.html">Bài viết</a></li>
+          <li><a href="pages/courses.html">Khóa học</a></li>
+          <li><a href="pages/course-detail.html?id=1">Pro Trading</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Hỗ trợ</div>
+        <ul class="footer-links">
+          <li><a href="#">Liên hệ</a></li>
+          <li><a href="#">Câu hỏi thường gặp</a></li>
+          <li><a href="#">Chính sách hoàn tiền</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Kết nối</div>
+        <ul class="footer-links">
+          <li><a href="#">Telegram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 Fibo. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart-badge.js?v=1"></script>
+<script src="js/search.js?v=1"></script>
+<script src="js/animations.js?v=1"></script>
+<script type="module" src="js/analytics.js?v=1"></script>
+</body>
+</html>

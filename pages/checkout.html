@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán — Fibo</title>
+  <meta name="description" content="Hoàn tất thanh toán khóa học tại Fibo">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=9">
+  <style>
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .checkout-grid { grid-template-columns: 1fr; }
+    }
+    .form-group { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Fi<span>bo</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="blog.html">Bài viết</a></li>
+    <li><a href="courses.html">Khóa học</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="cart.html" class="cart-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge hidden" id="cartBadge">0</span>
+    </a>
+  </div>
+  <div class="nav-mobile-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:40px;">
+  <div class="wrap">
+    <h1 style="font-family:'Exo 2',sans-serif;font-size:28px;font-weight:900;margin-bottom:32px;">Thanh toán</h1>
+
+    <div class="checkout-grid">
+      <!-- LEFT: Form -->
+      <div>
+        <div class="glass" style="padding:32px;">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:24px;">Thông tin của bạn</h3>
+          <form id="checkoutForm" onsubmit="handleCheckout(event)">
+            <div class="form-group">
+              <label class="label">Họ và tên</label>
+              <input type="text" class="input" id="fullName" placeholder="Nguyễn Văn A" required>
+            </div>
+            <div class="form-group">
+              <label class="label">Email</label>
+              <input type="email" class="input" id="email" placeholder="email@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="label">Số điện thoại</label>
+              <input type="tel" class="input" id="phone" placeholder="0912 345 678" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;margin-top:8px;" id="submitBtn">Xác nhận & Thanh toán</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT: Order summary -->
+      <div>
+        <div class="glass" style="padding:28px;position:sticky;top:90px;">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:20px;">Đơn hàng</h3>
+          <div id="orderItems"></div>
+          <div style="border-top:1px solid var(--border);margin-top:16px;padding-top:16px;display:flex;justify-content:space-between;align-items:center;">
+            <span style="color:var(--text-2);font-size:14px;">Tổng cộng</span>
+            <span id="orderTotal" style="font-family:'Exo 2',sans-serif;font-size:24px;font-weight:900;color:#fff;"></span>
+          </div>
+          <div style="margin-top:16px;padding:12px;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid var(--border);">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span style="font-size:12px;font-weight:600;color:var(--text-2);">Thanh toán an toàn</span>
+            </div>
+            <p style="font-size:11px;color:var(--text-3);line-height:1.5;">Chuyển khoản ngân hàng qua QR code. Nhận quyền truy cập ngay sau khi thanh toán thành công.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom" style="margin-top:0;padding-top:0;border:none;">&copy; 2024 Fibo. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../js/cart-badge.js?v=1"></script>
+<script src="../js/firestore-sync.js?v=1"></script>
+<script>
+function renderOrder() {
+  var cart = Cart.get();
+  if (cart.length === 0) {
+    window.location.href = 'cart.html';
+    return;
+  }
+
+  var itemsEl = document.getElementById('orderItems');
+  var totalEl = document.getElementById('orderTotal');
+
+  itemsEl.innerHTML = cart.map(function(item) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);">' +
+      '<div>' +
+        '<div style="font-size:14px;font-weight:600;">' + item.name + '</div>' +
+        '<div style="font-size:11px;color:var(--text-3);">x' + item.quantity + '</div>' +
+      '</div>' +
+      '<span style="font-size:14px;font-weight:600;">' + item.price.toLocaleString('vi-VN') + 'đ</span>' +
+    '</div>';
+  }).join('');
+
+  totalEl.textContent = Cart.total().toLocaleString('vi-VN') + 'đ';
+}
+
+async function handleCheckout(e) {
+  e.preventDefault();
+  var name = document.getElementById('fullName').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+
+  if (!name || !email || !phone) {
+    alert('Vui lòng điền đầy đủ thông tin');
+    return;
+  }
+
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Đang xử lý...';
+
+  var orderData = {
+    customer: { name: name, email: email, phone: phone },
+    items: Cart.get(),
+    total: Cart.total(),
+    orderNumber: 'SN' + Date.now()
+  };
+
+  await DataLayer.createOrder(orderData);
+  localStorage.setItem('bt_pending_order', JSON.stringify(orderData));
+
+  window.location.href = 'payment.html?order=' + orderData.orderNumber;
+}
+
+renderOrder();
+</script>
+</body>
+</html>

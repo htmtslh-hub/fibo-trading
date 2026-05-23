@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /pages/checkout
+Disallow: /pages/payment
+Disallow: /pages/cart
+Disallow: /pages/thank-you
+Sitemap: https://fibo.vn/sitemap.xml

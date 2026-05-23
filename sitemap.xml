@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://fibo.vn/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/courses</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/course-detail?id=1</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=tu-do-tai-chinh</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=chi-so-aq</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=so-vao-lenh</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=vay-no-va-don-bay</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=don-gian-la-hieu-qua</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=quan-ly-von</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=nhat-ky-giao-dich</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=fomo-trong-trading</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=kien-nhan-la-loi-the</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=hoc-tu-sai-lam</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=tai-sao-95-trader-thua</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=ky-luat-hon-chien-luoc</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=overtrading-ke-giet-tai-khoan</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=risk-reward-ratio</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=trading-trong-vung</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=thuat-ngu-trading</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+</urlset>

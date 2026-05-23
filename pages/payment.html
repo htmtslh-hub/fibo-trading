@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán chuyển khoản — Fibo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=9">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Fi<span>bo</span></a>
+  <div class="nav-right">
+    <span style="color:var(--text-3);font-size:13px;">Đang chờ thanh toán...</span>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:40px;">
+  <div class="wrap" style="max-width:560px;">
+    <div class="glass" style="padding:40px;text-align:center;">
+      <h2 style="font-family:'Exo 2',sans-serif;font-size:22px;font-weight:800;margin-bottom:8px;">Chuyển khoản ngân hàng</h2>
+      <p style="color:var(--text-2);font-size:13px;margin-bottom:28px;">Quét mã QR hoặc chuyển khoản theo thông tin bên dưới</p>
+
+      <!-- QR Code -->
+      <div style="margin-bottom:24px;">
+        <img id="qrCode" alt="QR Code thanh toán" style="width:220px;height:220px;margin:0 auto;border-radius:12px;background:#fff;padding:8px;">
+      </div>
+
+      <!-- Transfer info -->
+      <div style="text-align:left;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px;">
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);">
+          <span style="color:var(--text-3);font-size:13px;">Ngân hàng</span>
+          <span style="font-size:13px;font-weight:600;">VietinBank</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);">
+          <span style="color:var(--text-3);font-size:13px;">Số tài khoản</span>
+          <span style="font-size:13px;font-weight:600;">109887120806</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);">
+          <span style="color:var(--text-3);font-size:13px;">Chủ tài khoản</span>
+          <span style="font-size:13px;font-weight:600;">FIBO</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);">
+          <span style="color:var(--text-3);font-size:13px;">Số tiền</span>
+          <span id="payAmount" style="font-size:13px;font-weight:600;color:var(--accent);"></span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;">
+          <span style="color:var(--text-3);font-size:13px;">Nội dung CK</span>
+          <span id="payContent" style="font-size:13px;font-weight:600;color:var(--accent);"></span>
+        </div>
+      </div>
+
+      <div style="background:var(--accent-glow);border:1px solid rgba(200,245,96,.15);border-radius:10px;padding:12px 16px;margin-bottom:24px;">
+        <p style="font-size:12px;color:var(--accent);font-weight:600;">Quan trọng: Nhập đúng nội dung chuyển khoản để hệ thống tự động xác nhận.</p>
+      </div>
+
+      <!-- Status -->
+      <div id="payStatus" style="display:flex;align-items:center;justify-content:center;gap:8px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1.5s infinite;"></div>
+        <span style="color:var(--text-2);font-size:13px;">Đang chờ thanh toán...</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+</style>
+
+<script src="../js/cart-badge.js?v=1"></script>
+<script>
+var order = JSON.parse(localStorage.getItem('bt_pending_order') || 'null');
+if (!order) { window.location.href = 'cart.html'; }
+
+var orderNumber = order.orderNumber;
+var total = order.total;
+
+document.getElementById('payAmount').textContent = total.toLocaleString('vi-VN') + 'đ';
+document.getElementById('payContent').textContent = 'SEVQR ' + orderNumber;
+
+var qrParams = new URLSearchParams({
+  bank: 'VietinBank',
+  acc: '109887120806',
+  template: 'compact',
+  amount: total,
+  des: 'SEVQR ' + orderNumber
+});
+document.getElementById('qrCode').src = 'https://qr.sepay.vn/img?' + qrParams.toString();
+
+// Poll payment status
+var pollCount = 0;
+var maxPoll = 300; // 15 minutes
+var pollInterval = setInterval(async function() {
+  pollCount++;
+  if (pollCount >= maxPoll) {
+    clearInterval(pollInterval);
+    document.getElementById('payStatus').innerHTML = '<span style="color:var(--text-3);font-size:13px;">Hết thời gian chờ. Vui lòng liên hệ hỗ trợ.</span>';
+    return;
+  }
+  try {
+    var res = await fetch('/api/seapay/status?orderNumber=' + orderNumber);
+    var data = await res.json();
+    if (data.data && data.data.paymentStatus === 'paid') {
+      clearInterval(pollInterval);
+      Cart.clear();
+      document.getElementById('payStatus').innerHTML = '<div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span style="color:var(--accent);font-size:13px;font-weight:600;">Thanh toán thành công!</span></div>';
+      setTimeout(function() { window.location.href = 'thank-you.html?order=' + orderNumber; }, 1500);
+    }
+  } catch (e) {}
+}, 3000);
+</script>
+</body>
+</html>

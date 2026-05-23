@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán thành công — Fibo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=9">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Fi<span>bo</span></a>
+  <div class="nav-right">
+    <a href="../index.html" class="btn btn-outline btn-sm">Trang chủ</a>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:60px;">
+  <div class="wrap" style="max-width:560px;text-align:center;">
+    <div style="width:72px;height:72px;border-radius:50%;background:var(--accent-glow);border:2px solid rgba(200,245,96,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1 style="font-family:'Exo 2',sans-serif;font-size:28px;font-weight:900;margin-bottom:12px;">Thanh toán thành công!</h1>
+    <p style="color:var(--text-2);font-size:15px;margin-bottom:32px;line-height:1.7;">Cảm ơn bạn đã đăng ký. Quyền truy cập khóa học đã được kích hoạt. Kiểm tra email để nhận thông tin chi tiết.</p>
+
+    <div class="glass" style="padding:28px;text-align:left;margin-bottom:32px;">
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--text-3);font-size:13px;">Mã đơn hàng</span>
+        <span id="orderNum" style="font-size:13px;font-weight:600;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--text-3);font-size:13px;">Trạng thái</span>
+        <span style="font-size:13px;font-weight:600;color:var(--accent);">Đã thanh toán</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0;">
+        <span style="color:var(--text-3);font-size:13px;">Khóa học</span>
+        <span id="orderCourse" style="font-size:13px;font-weight:600;"></span>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="btn btn-primary btn-lg" id="accessBtn">Truy cập khóa học</a>
+      <a href="../index.html" class="btn btn-outline">Về trang chủ</a>
+    </div>
+
+    <p style="color:var(--text-3);font-size:12px;margin-top:24px;">Email xác nhận đã được gửi đến hộp thư của bạn.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom" style="margin-top:0;padding-top:0;border:none;">&copy; 2024 Fibo. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+var params = new URLSearchParams(window.location.search);
+var orderNumber = params.get('order') || '';
+document.getElementById('orderNum').textContent = orderNumber;
+
+var order = JSON.parse(localStorage.getItem('bt_pending_order') || '{}');
+var courseName = (order.items && order.items[0]) ? order.items[0].name : 'Pro Trading';
+document.getElementById('orderCourse').textContent = courseName;
+
+localStorage.removeItem('bt_pending_order');
+localStorage.removeItem('bt_cart');
+</script>
+</body>
+</html>
