@@ -5,8 +5,12 @@ module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   let apiKey = req.headers['authorization'] || req.headers['x-api-key'] || '';
-  if (apiKey.startsWith('Bearer ')) {
-    apiKey = apiKey.substring(7);
+  apiKey = apiKey.trim();
+  
+  if (apiKey.toLowerCase().startsWith('apikey ')) {
+    apiKey = apiKey.substring(7).trim();
+  } else if (apiKey.toLowerCase().startsWith('bearer ')) {
+    apiKey = apiKey.substring(7).trim();
   }
   
   if (apiKey !== process.env.SEPAY_API_KEY) {
