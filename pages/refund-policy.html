@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chính Sách Hoàn Tiền — Fibo</title>
+  <meta name="description" content="Chính sách hoàn tiền và miễn trừ trách nhiệm khi mua khóa học tại Fibo.">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=9">
+  <style>
+    .policy-content { max-width: 780px; margin: 0 auto; }
+    .policy-content h2 { font-family: 'Exo 2', sans-serif; font-size: 20px; font-weight: 800; margin: 48px 0 16px; color: #fff; }
+    .policy-content h3 { font-size: 16px; font-weight: 700; margin: 32px 0 12px; color: #fff; }
+    .policy-content p, .policy-content li { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 12px; }
+    .policy-content ul { padding-left: 20px; margin-bottom: 16px; }
+    .policy-content li { margin-bottom: 8px; }
+    .policy-highlight { background: var(--bg-3); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+    .policy-highlight p { color: var(--text-2); margin-bottom: 8px; }
+    .policy-highlight p:last-child { margin-bottom: 0; }
+    .policy-warning { border-left: 3px solid var(--accent); padding-left: 16px; margin: 24px 0; }
+    .policy-warning p { color: #fff; font-weight: 500; }
+    .policy-date { font-size: 13px; color: var(--text-3); margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Fi<span>bo</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="blog.html">Bài viết</a></li>
+    <li><a href="courses.html">Khóa học</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-icon" onclick="openSearch()" title="Tìm kiếm (Ctrl+K)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <a href="cart.html" class="cart-icon" style="border-color:var(--border-hover);">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge hidden" id="cartBadge">0</span>
+    </a>
+    <a href="course-detail.html?id=1" class="btn btn-primary btn-sm">Khóa học Pro</a>
+  </div>
+  <div class="nav-mobile-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:40px;">
+  <div class="wrap policy-content">
+    <h1 style="font-family:'Exo 2',sans-serif;font-size:28px;font-weight:900;margin-bottom:12px;">Chính Sách Hoàn Tiền & Miễn Trừ Trách Nhiệm</h1>
+    <p style="color:var(--text-3);font-size:13px;margin-bottom:40px;">Cập nhật lần cuối: 23/05/2026</p>
+
+    <div class="policy-warning">
+      <p>Bằng việc thực hiện thanh toán mua khóa học tại Fibo, Khách hàng xác nhận đã đọc, hiểu rõ và đồng ý toàn bộ các điều khoản dưới đây. Đây là thỏa thuận ràng buộc pháp lý giữa Khách hàng và Fibo.</p>
+    </div>
+
+    <!-- 1. Bản chất sản phẩm -->
+    <h2>1. Bản Chất Sản Phẩm</h2>
+    <p>Tất cả sản phẩm được bán tại Fibo là <strong>sản phẩm số (digital product)</strong> dưới dạng khóa học trực tuyến, bao gồm video bài giảng, tài liệu PDF, template, và công cụ hỗ trợ. Sản phẩm được giao ngay lập tức sau khi thanh toán thành công thông qua đường link truy cập.</p>
+    <p>Nội dung khóa học mang tính chất <strong>giáo dục và chia sẻ kiến thức thuần túy</strong>. Fibo không phải là tổ chức tư vấn tài chính, không phải công ty chứng khoán, và không cung cấp dịch vụ tư vấn đầu tư theo quy định pháp luật.</p>
+
+    <!-- 2. Trách nhiệm kiểm tra trước khi mua -->
+    <h2>2. Trách Nhiệm Kiểm Tra Trước Khi Mua</h2>
+    <div class="policy-warning">
+      <p>Khách hàng có trách nhiệm tìm hiểu kỹ thông tin sản phẩm trước khi quyết định mua. Sau khi thanh toán thành công, đơn hàng không thể hủy và không được hoàn tiền dưới bất kỳ hình thức nào.</p>
+    </div>
+    <p>Trước khi thanh toán, Khách hàng cần tự đảm bảo đã:</p>
+    <ul>
+      <li>Đọc kỹ toàn bộ mô tả khóa học, nội dung chương trình, và danh sách bài học trên trang sản phẩm</li>
+      <li>Xem xét các thông tin về đối tượng phù hợp, yêu cầu kiến thức nền tảng (nếu có)</li>
+      <li>Hiểu rõ hình thức giao nhận sản phẩm (truy cập trực tuyến qua link sau thanh toán)</li>
+      <li>Xác nhận rằng sản phẩm phù hợp với nhu cầu và mục tiêu cá nhân</li>
+      <li>Liên hệ Fibo để được giải đáp nếu có bất kỳ thắc mắc nào trước khi mua</li>
+    </ul>
+    <p>Fibo đã cung cấp đầy đủ thông tin sản phẩm trên website. Việc Khách hàng không đọc hoặc bỏ qua thông tin mô tả sản phẩm không phải là căn cứ để yêu cầu hoàn tiền.</p>
+
+    <!-- 3. Chính sách không hoàn tiền -->
+    <h2>3. Chính Sách Không Hoàn Tiền</h2>
+    <div class="policy-highlight">
+      <p><strong>Fibo áp dụng chính sách KHÔNG HOÀN TIỀN (No Refund) cho tất cả sản phẩm số đã được giao.</strong></p>
+      <p>Do bản chất sản phẩm số không thể thu hồi sau khi đã cấp quyền truy cập, mọi giao dịch mua hàng đều là quyết định cuối cùng và không thể hoàn tác.</p>
+    </div>
+    <p>Cụ thể, Fibo <strong>không hoàn tiền</strong> trong bất kỳ trường hợp nào sau đây:</p>
+    <ul>
+      <li>Khách hàng đổi ý, không muốn học nữa, hoặc không có thời gian học</li>
+      <li>Khách hàng cho rằng nội dung không phù hợp với kỳ vọng cá nhân</li>
+      <li>Khách hàng không đạt được kết quả giao dịch như mong muốn sau khi học</li>
+      <li>Khách hàng đã xem một phần hoặc toàn bộ nội dung khóa học</li>
+      <li>Khách hàng gặp thua lỗ trong quá trình giao dịch thực tế</li>
+      <li>Khách hàng mua nhầm, mua trùng, hoặc mua cho người khác rồi muốn hủy</li>
+      <li>Khách hàng không truy cập hoặc không sử dụng khóa học sau khi mua</li>
+      <li>Bất kỳ lý do cá nhân nào khác không liên quan đến lỗi kỹ thuật từ phía Fibo</li>
+    </ul>
+
+    <!-- 4. Trường hợp ngoại lệ -->
+    <h2>4. Trường Hợp Ngoại Lệ Duy Nhất</h2>
+    <p>Fibo chỉ xem xét hoàn tiền khi <strong>đồng thời thỏa mãn tất cả</strong> các điều kiện sau:</p>
+    <ul>
+      <li>Lỗi kỹ thuật 100% từ phía hệ thống Fibo khiến khách hàng hoàn toàn không thể truy cập nội dung khóa học</li>
+      <li>Fibo không thể khắc phục lỗi trong vòng 7 ngày làm việc kể từ khi nhận được báo cáo</li>
+      <li>Khách hàng chưa xem bất kỳ nội dung nào của khóa học</li>
+      <li>Khách hàng gửi yêu cầu trong vòng 48 giờ kể từ thời điểm thanh toán</li>
+    </ul>
+    <p>Quyết định hoàn tiền trong trường hợp ngoại lệ thuộc toàn quyền xem xét của Fibo và là quyết định cuối cùng.</p>
+
+    <!-- 5. Miễn trừ trách nhiệm -->
+    <h2>5. Miễn Trừ Trách Nhiệm Toàn Bộ</h2>
+
+    <h3>4.1. Về kết quả giao dịch</h3>
+    <p>Fibo <strong>miễn trừ hoàn toàn mọi trách nhiệm</strong> đối với kết quả giao dịch, đầu tư, hoặc bất kỳ quyết định tài chính nào mà Khách hàng thực hiện sau khi tham gia khóa học. Cụ thể:</p>
+    <ul>
+      <li>Fibo không chịu trách nhiệm cho bất kỳ khoản thua lỗ, mất mát tài chính nào phát sinh từ hoạt động giao dịch của Khách hàng</li>
+      <li>Fibo không đảm bảo, cam kết, hoặc ngụ ý rằng Khách hàng sẽ đạt được lợi nhuận hay bất kỳ kết quả tài chính cụ thể nào</li>
+      <li>Mọi kết quả, ví dụ, hoặc số liệu được đề cập trong khóa học chỉ mang tính minh họa, không phải cam kết về hiệu suất tương lai</li>
+      <li>Khách hàng tự chịu 100% rủi ro khi áp dụng bất kỳ kiến thức nào từ khóa học vào giao dịch thực tế</li>
+    </ul>
+
+    <h3>4.2. Về nội dung giáo dục</h3>
+    <ul>
+      <li>Nội dung khóa học được cung cấp trên cơ sở "nguyên trạng" (as-is), không kèm bất kỳ bảo đảm nào về tính chính xác, đầy đủ, hoặc phù hợp cho mục đích cụ thể</li>
+      <li>Fibo không chịu trách nhiệm nếu thông tin trong khóa học trở nên lỗi thời do thay đổi của thị trường, quy định pháp luật, hoặc điều kiện kinh tế</li>
+      <li>Khóa học không thay thế cho tư vấn tài chính chuyên nghiệp từ các tổ chức được cấp phép</li>
+    </ul>
+
+    <h3>4.3. Về thiệt hại</h3>
+    <div class="policy-highlight">
+      <p>Trong mọi trường hợp, tổng mức trách nhiệm tối đa của Fibo (nếu có) không vượt quá số tiền mà Khách hàng đã thanh toán cho khóa học liên quan. Fibo không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, mang tính hậu quả, hoặc mang tính trừng phạt nào.</p>
+    </div>
+    <ul>
+      <li>Mất lợi nhuận, mất cơ hội kinh doanh, mất dữ liệu</li>
+      <li>Thiệt hại do gián đoạn hoạt động giao dịch</li>
+      <li>Chi phí phát sinh từ việc tìm kiếm sản phẩm/dịch vụ thay thế</li>
+      <li>Bất kỳ thiệt hại nào vượt quá giá trị đơn hàng đã thanh toán</li>
+    </ul>
+
+    <h3>4.4. Về bên thứ ba</h3>
+    <ul>
+      <li>Fibo không chịu trách nhiệm về hoạt động của các sàn giao dịch, broker, ngân hàng, hoặc bất kỳ bên thứ ba nào mà Khách hàng sử dụng</li>
+      <li>Fibo không chịu trách nhiệm về các công cụ, phần mềm, hoặc nền tảng bên ngoài được đề cập trong khóa học</li>
+      <li>Mọi liên kết đến trang web bên ngoài chỉ mang tính tham khảo, Fibo không kiểm soát và không chịu trách nhiệm về nội dung của các trang đó</li>
+    </ul>
+
+    <!-- 6. Xác nhận của khách hàng -->
+    <h2>6. Xác Nhận Của Khách Hàng</h2>
+    <p>Bằng việc hoàn tất thanh toán, Khách hàng xác nhận và đồng ý rằng:</p>
+    <ul>
+      <li>Đã đọc và hiểu toàn bộ chính sách này trước khi mua hàng</li>
+      <li>Quyết định mua hàng là hoàn toàn tự nguyện, không bị ép buộc hay dụ dỗ</li>
+      <li>Hiểu rõ rằng sản phẩm số không thể hoàn trả và chấp nhận chính sách không hoàn tiền</li>
+      <li>Hiểu rằng giao dịch tài chính có rủi ro cao và có thể mất toàn bộ vốn</li>
+      <li>Tự chịu trách nhiệm hoàn toàn cho mọi quyết định giao dịch và đầu tư của mình</li>
+      <li>Không sử dụng nội dung khóa học làm cơ sở duy nhất cho quyết định đầu tư</li>
+      <li>Đủ 18 tuổi trở lên và có đầy đủ năng lực hành vi dân sự</li>
+      <li>Từ bỏ quyền khiếu nại, khiếu kiện Fibo về kết quả giao dịch sau khi học</li>
+    </ul>
+
+    <!-- 7. Quyền sở hữu trí tuệ -->
+    <h2>7. Quyền Sở Hữu Trí Tuệ & Sử Dụng</h2>
+    <ul>
+      <li>Khách hàng được cấp quyền truy cập cá nhân, không chuyển nhượng, không độc quyền</li>
+      <li>Nghiêm cấm sao chép, phân phối, chia sẻ, bán lại, hoặc công bố nội dung khóa học dưới mọi hình thức</li>
+      <li>Vi phạm bản quyền sẽ bị thu hồi quyền truy cập ngay lập tức mà không hoàn tiền, đồng thời Fibo bảo lưu quyền yêu cầu bồi thường thiệt hại</li>
+      <li>Fibo có quyền đơn phương chấm dứt quyền truy cập nếu phát hiện hành vi vi phạm, không cần thông báo trước và không hoàn tiền</li>
+    </ul>
+
+    <!-- 8. Thay đổi chính sách -->
+    <h2>8. Quyền Thay Đổi</h2>
+    <p>Fibo bảo lưu quyền thay đổi, cập nhật, hoặc sửa đổi chính sách này bất kỳ lúc nào mà không cần thông báo trước. Phiên bản mới nhất luôn được đăng tải tại trang này. Việc Khách hàng tiếp tục sử dụng dịch vụ sau khi chính sách được cập nhật đồng nghĩa với việc chấp nhận các thay đổi.</p>
+
+    <!-- 9. Luật áp dụng -->
+    <h2>9. Luật Áp Dụng & Giải Quyết Tranh Chấp</h2>
+    <p>Chính sách này được điều chỉnh bởi pháp luật Việt Nam. Mọi tranh chấp phát sinh sẽ được giải quyết thông qua thương lượng. Trong trường hợp không thể thương lượng, tranh chấp sẽ được đưa ra Tòa án nhân dân có thẩm quyền tại nơi Fibo đặt trụ sở.</p>
+
+    <!-- 10. Liên hệ -->
+    <h2>10. Liên Hệ</h2>
+    <p>Nếu có thắc mắc về chính sách này, vui lòng liên hệ qua email hoặc các kênh hỗ trợ chính thức của Fibo được đăng tải trên website.</p>
+
+    <p class="policy-date">Chính sách có hiệu lực từ ngày 23/05/2026. Bằng việc thanh toán, Khách hàng mặc nhiên chấp nhận toàn bộ điều khoản trên.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom" style="margin-top:0;padding-top:0;border:none;">&copy; 2024 Fibo. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../js/cart-badge.js?v=1"></script>
+<script src="../js/search.js?v=1"></script>
+</body>
+</html>
