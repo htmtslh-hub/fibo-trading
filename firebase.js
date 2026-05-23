@@ -4,13 +4,12 @@ import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js';
 
 const firebaseConfig = {
-  // TODO: Paste Firebase config here
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyAkZIagcuOzJvguZUbxmly6hWiRt9nFG7s",
+  authDomain: "fibo-trading.firebaseapp.com",
+  projectId: "fibo-trading",
+  storageBucket: "fibo-trading.firebasestorage.app",
+  messagingSenderId: "1087097748601",
+  appId: "1:1087097748601:web:da9ab9148f25ed9799a8a8"
 };
 
 const app = initializeApp(firebaseConfig);

@@ -61,14 +61,15 @@ async function getProduct(id) {
 
 async function createOrder(orderData) {
   try {
-    var { db, addDoc, collection, serverTimestamp } = await import('/firebase.js');
-    var docRef = await addDoc(collection(db, 'orders'), Object.assign({}, orderData, {
+    var { db, doc, setDoc, serverTimestamp } = await import('/firebase.js');
+    await setDoc(doc(db, 'orders', orderData.orderNumber), Object.assign({}, orderData, {
       paymentStatus: 'pending',
-      createdAt: serverTimestamp()
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp()
     }));
-    return docRef.id;
+    return orderData.orderNumber;
   } catch (e) {
-    console.warn('Firestore unavailable, order saved locally');
+    console.warn('Firestore unavailable, order saved locally', e);
     return orderData.orderNumber;
   }
 }

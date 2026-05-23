@@ -43,20 +43,30 @@ module.exports = async (req, res) => {
       updatedAt: new Date().toISOString()
     });
 
-    // Share Google Drive (non-blocking)
-    shareDriveFolder(order.customer.email).catch(e => console.error('Drive share failed:', e.message));
+    // Share Google Drive (await to ensure completion in serverless environments)
+    try {
+      await shareDriveFolder(order.customer.email);
+    } catch (e) {
+      console.error('Drive share failed:', e.message);
+    }
 
-    // Trigger email (non-blocking)
-    const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
-    fetch(`${baseUrl}/api/email/send`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Internal-Key': process.env.INTERNAL_API_KEY },
-      body: JSON.stringify({
-        type: 'order_confirmation',
-        to: order.customer.email,
-        data: { customerName: order.customer.name, orderNumber, total: order.total, items: order.items }
-      })
-    }).catch(e => console.error('Email trigger failed:', e.message));
+    // Trigger email (await to ensure completion in serverless environments)
+    try {
+      const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
+      const emailRes = await fetch(`${baseUrl}/api/email/send`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Internal-Key': process.env.INTERNAL_API_KEY },
+        body: JSON.stringify({
+          type: 'order_confirmation',
+          to: order.customer.email,
+          data: { customerName: order.customer.name, orderNumber, total: order.total, items: order.items }
+        })
+      });
+      const emailData = await emailRes.json();
+      console.log('Email send result:', emailData);
+    } catch (e) {
+      console.error('Email trigger failed:', e.message);
+    }
 
     return res.json({ success: true, orderNumber });
   } catch (e) {
