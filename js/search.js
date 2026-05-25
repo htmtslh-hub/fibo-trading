@@ -1,5 +1,6 @@
 (function() {
   var posts = [
+    { slug: 'fibonacci-trong-trading', title: 'Fibonacci trong Trading — Cách sử dụng hiệu quả để xác định vùng giá', category: 'Kiến thức' },
     { slug: 'thuat-ngu-trading', title: 'Từ điển Trading — Giải thích 40+ thuật ngữ trader cần biết', category: 'Kiến thức' },
     { slug: 'tu-do-tai-chinh', title: 'Tự do tài chính — Đích đến thực sự của trader', category: 'Tư duy' },
     { slug: 'chi-so-aq', title: 'Chỉ số AQ — Yếu tố quyết định thành bại trong trading', category: 'Mindset' },
