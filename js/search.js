@@ -20,7 +20,7 @@
 
   var pages = [
     { url: 'courses.html', title: 'Khóa học', category: 'Trang' },
-    { url: 'course-detail.html?id=1', title: 'Pro Trading — Chi tiết khóa học', category: 'Trang' }
+    { url: 'course-detail.html?id=1', title: 'Pro Trading 2.0 — Chi tiết khóa học', category: 'Trang' }
   ];
 
   function getBasePath() {
