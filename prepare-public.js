@@ -31,4 +31,7 @@ rootFiles.forEach(f => {
 const dirs = ['css', 'js', 'pages', 'product', 'api'];
 dirs.forEach(d => copyRecursive(d, path.join(PUBLIC, d)));
 
+// Generate static blog pages
+require('./generate-blog');
+
 console.log('Build complete → public/');
