@@ -163,14 +163,21 @@
           </div>
           <div class="stat-card">
             <div class="stat-number" id="trafficTotal">0</div>
-            <div class="stat-label">Tổng cộng</div>
+            <div class="stat-label">Tổng lượt xem</div>
           </div>
         </div>
         <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Chi tiết theo ngày</h3>
         <div style="overflow-x:auto;">
           <table class="admin-table">
-            <thead><tr><th>Ngày</th><th>Lượt xem</th><th>Lần truy cập cuối</th></tr></thead>
+            <thead><tr><th>Ngày</th><th>Lượt xem</th><th>Unique Visitors</th><th>Lần truy cập cuối</th></tr></thead>
             <tbody id="trafficBody"></tbody>
+          </table>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin:32px 0 16px;">Chi tiết theo trang (hôm nay)</h3>
+        <div style="overflow-x:auto;">
+          <table class="admin-table">
+            <thead><tr><th>Trang</th><th>Lượt xem</th></tr></thead>
+            <tbody id="trafficPageBody"></tbody>
           </table>
         </div>
         <p id="trafficEmpty" style="color:var(--text-3);font-size:13px;text-align:center;padding:40px 0;display:none;">Chưa có dữ liệu lượt truy cập.</p>
@@ -359,13 +366,14 @@ window.loadTraffic = async function() {
     snapshot.docs.forEach(function(d) {
       var data = d.data();
       var views = data.views || 0;
+      var unique = data.uniqueVisitors || '-';
       totalViews += views;
       if (d.id === today) todayViews = views;
       if (d.id === yesterday) yesterdayViews = views;
       if (d.id >= weekAgo) weekViews += views;
 
       var lastVisit = data.lastVisit ? new Date(data.lastVisit).toLocaleString('vi-VN') : '-';
-      rows.push('<tr><td style="font-weight:600;color:#fff;">' + d.id + '</td><td>' + views.toLocaleString('vi-VN') + '</td><td>' + lastVisit + '</td></tr>');
+      rows.push('<tr><td style="font-weight:600;color:#fff;">' + d.id + '</td><td>' + views.toLocaleString('vi-VN') + '</td><td>' + (typeof unique === 'number' ? unique.toLocaleString('vi-VN') : unique) + '</td><td>' + lastVisit + '</td></tr>');
     });
 
     document.getElementById('trafficToday').textContent = todayViews.toLocaleString('vi-VN');
@@ -373,6 +381,23 @@ window.loadTraffic = async function() {
     document.getElementById('trafficWeek').textContent = weekViews.toLocaleString('vi-VN');
     document.getElementById('trafficTotal').textContent = totalViews.toLocaleString('vi-VN');
     tbody.innerHTML = rows.join('');
+
+    // Load page detail for today
+    var pageBody = document.getElementById('trafficPageBody');
+    try {
+      var pageSnap = await getDocs(collection(db, 'page_views_detail'));
+      var pageRows = [];
+      pageSnap.docs.forEach(function(d) {
+        var data = d.data();
+        if (data.date === today) {
+          pageRows.push({ page: data.page, views: data.views || 0 });
+        }
+      });
+      pageRows.sort(function(a, b) { return b.views - a.views; });
+      pageBody.innerHTML = pageRows.length ? pageRows.map(function(r) {
+        return '<tr><td style="font-weight:600;color:#fff;">' + r.page + '</td><td>' + r.views.toLocaleString('vi-VN') + '</td></tr>';
+      }).join('') : '<tr><td colspan="2" style="color:var(--text-3);text-align:center;">Chưa có dữ liệu hôm nay</td></tr>';
+    } catch (e) { pageBody.innerHTML = ''; }
   } catch (e) { console.error(e); }
 };
 </script>
