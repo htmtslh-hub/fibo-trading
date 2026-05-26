@@ -23,10 +23,10 @@ var defaultProducts = [
     slug: 'pro-trading',
     name: 'Pro Trading 2.0',
     price: 1399000,
-    description: 'Trọn bộ 33 bài học xây dựng hệ thống giao dịch từ A-Z. Cấu trúc thị trường, điểm vào lệnh, backtest, quản lý vốn.',
+    description: 'Trọn bộ gần 50 bài học xây dựng hệ thống giao dịch từ A-Z. Cấu trúc thị trường, điểm vào lệnh, backtest, quản lý vốn.',
     image: 'https://images.pexels.com/photos/5833752/pexels-photo-5833752.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     category: 'course',
-    lessons: 33,
+    lessons: 50,
     rating: 4.9,
     students: 500,
     active: true
