@@ -82,6 +82,10 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         Khóa học
       </div>
+      <div class="sidebar-item" onclick="switchPage('traffic')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        Lượt truy cập
+      </div>
     </div>
 
     <div class="admin-content">
@@ -139,6 +143,37 @@
             <tbody id="productsBody"></tbody>
           </table>
         </div>
+      </div>
+
+      <!-- TRAFFIC -->
+      <div id="page-traffic" class="page-section">
+        <h2 style="font-size:20px;font-weight:800;margin-bottom:24px;">Lượt truy cập</h2>
+        <div class="grid-4" style="margin-bottom:32px;">
+          <div class="stat-card">
+            <div class="stat-number" id="trafficToday">0</div>
+            <div class="stat-label">Hôm nay</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="trafficYesterday">0</div>
+            <div class="stat-label">Hôm qua</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="trafficWeek">0</div>
+            <div class="stat-label">7 ngày qua</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="trafficTotal">0</div>
+            <div class="stat-label">Tổng cộng</div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Chi tiết theo ngày</h3>
+        <div style="overflow-x:auto;">
+          <table class="admin-table">
+            <thead><tr><th>Ngày</th><th>Lượt xem</th><th>Lần truy cập cuối</th></tr></thead>
+            <tbody id="trafficBody"></tbody>
+          </table>
+        </div>
+        <p id="trafficEmpty" style="color:var(--text-3);font-size:13px;text-align:center;padding:40px 0;display:none;">Chưa có dữ liệu lượt truy cập.</p>
       </div>
     </div>
   </div>
@@ -209,6 +244,7 @@ window.switchPage = function(page) {
     case 'dashboard': loadDashboard(); break;
     case 'orders': loadOrders(); break;
     case 'products': loadProducts(); break;
+    case 'traffic': loadTraffic(); break;
   }
 };
 
@@ -299,6 +335,45 @@ window.deleteProduct = async function(id) {
   if (!confirm('Xóa khóa học này?')) return;
   await deleteDoc(doc(db, 'products', id));
   loadProducts();
+};
+
+window.loadTraffic = async function() {
+  try {
+    var snapshot = await getDocs(query(collection(db, 'page_views'), orderBy('date', 'desc')));
+    var tbody = document.getElementById('trafficBody');
+    var empty = document.getElementById('trafficEmpty');
+
+    if (snapshot.empty) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+
+    var today = new Date().toISOString().split('T')[0];
+    var yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    var weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
+
+    var totalViews = 0;
+    var todayViews = 0;
+    var yesterdayViews = 0;
+    var weekViews = 0;
+
+    var rows = [];
+    snapshot.docs.forEach(function(d) {
+      var data = d.data();
+      var views = data.views || 0;
+      totalViews += views;
+      if (d.id === today) todayViews = views;
+      if (d.id === yesterday) yesterdayViews = views;
+      if (d.id >= weekAgo) weekViews += views;
+
+      var lastVisit = data.lastVisit ? new Date(data.lastVisit).toLocaleString('vi-VN') : '-';
+      rows.push('<tr><td style="font-weight:600;color:#fff;">' + d.id + '</td><td>' + views.toLocaleString('vi-VN') + '</td><td>' + lastVisit + '</td></tr>');
+    });
+
+    document.getElementById('trafficToday').textContent = todayViews.toLocaleString('vi-VN');
+    document.getElementById('trafficYesterday').textContent = yesterdayViews.toLocaleString('vi-VN');
+    document.getElementById('trafficWeek').textContent = weekViews.toLocaleString('vi-VN');
+    document.getElementById('trafficTotal').textContent = totalViews.toLocaleString('vi-VN');
+    tbody.innerHTML = rows.join('');
+  } catch (e) { console.error(e); }
 };
 </script>
 </body>
