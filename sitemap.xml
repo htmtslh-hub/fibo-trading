@@ -6,6 +6,7 @@
   <url><loc>https://fibo.vn/pages/blog</loc><priority>0.8</priority><changefreq>daily</changefreq></url>
   <url><loc>https://fibo.vn/pages/refund-policy</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://fibo.vn/pages/blog-post?slug=fibonacci-trong-trading</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fibo.vn/pages/blog-post?slug=backtest-trading-la-gi</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://fibo.vn/pages/blog-post?slug=cach-xac-dinh-xu-huong</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://fibo.vn/pages/blog-post?slug=luat-bo-gau</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://fibo.vn/pages/blog-post?slug=thuat-ngu-trading</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>

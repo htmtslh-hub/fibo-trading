@@ -1,5 +1,6 @@
 (function() {
   var posts = [
+    { slug: 'backtest-trading-la-gi', title: 'Backtest Trading là gì — Cách kiểm chứng phương pháp trước khi trade thật', category: 'Kiến thức' },
     { slug: 'cach-xac-dinh-xu-huong', title: 'Cách xác định xu hướng thị trường — Hướng dẫn chi tiết cho trader', category: 'Kiến thức' },
     { slug: 'luat-bo-gau', title: 'Luật Bò Gấu — Nguyên tắc xác định xu hướng mà trader phải nắm', category: 'Kiến thức' },
     { slug: 'fibonacci-trong-trading', title: 'Fibonacci trong Trading — Cách sử dụng hiệu quả để xác định vùng giá', category: 'Kiến thức' },
