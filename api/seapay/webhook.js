@@ -2,43 +2,25 @@ const { getAdminDb } = require('../firebase-admin');
 const { shareDriveFolder } = require('../google-drive');
 
 module.exports = async (req, res) => {
-  if (req.method === 'GET') {
-    const vercelApiKey = process.env.SEPAY_API_KEY || '';
-    return res.json({
-      diagnostic: 'SePay Webhook GET Endpoint active',
-      vercelKeyLength: vercelApiKey.length,
-      vercelKeyFirstChar: vercelApiKey.charAt(0) || 'empty',
-      vercelKeyLastChar: vercelApiKey.charAt(vercelApiKey.length - 1) || 'empty',
-      lastSepayAuth: global._lastSepayAuth || 'No webhook received yet'
-    });
-  }
-
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const rawAuthHeader = req.headers['authorization'] || '';
   const rawXApiKey = req.headers['x-api-key'] || '';
   let apiKey = rawAuthHeader || rawXApiKey || '';
   apiKey = apiKey.trim();
-  
+
   if (apiKey.toLowerCase().startsWith('apikey ')) {
     apiKey = apiKey.substring(7).trim();
   } else if (apiKey.toLowerCase().startsWith('bearer ')) {
     apiKey = apiKey.substring(7).trim();
   }
-  
+
   const expectedKey = (process.env.SEPAY_API_KEY || '').trim();
-  
-  // TEMPORARY: Store last received auth for GET diagnostic, do NOT block
-  global._lastSepayAuth = {
-    rawAuthHeader,
-    rawXApiKey,
-    parsedKey: apiKey,
-    parsedKeyLength: apiKey.length,
-    expectedKeyLength: expectedKey.length,
-    match: apiKey === expectedKey,
-    timestamp: new Date().toISOString()
-  };
-  console.log('SePay webhook auth:', JSON.stringify(global._lastSepayAuth));
+
+  if (!expectedKey || apiKey !== expectedKey) {
+    console.error('SePay webhook auth failed');
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
 
   try {
     const { transferAmount, content, transactionDate } = req.body;
