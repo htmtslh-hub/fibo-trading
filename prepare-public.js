@@ -22,7 +22,7 @@ if (fs.existsSync(PUBLIC)) fs.rmSync(PUBLIC, { recursive: true });
 fs.mkdirSync(PUBLIC, { recursive: true });
 
 // Root files
-const rootFiles = ['index.html', 'firebase.js', 'sitemap.xml', 'robots.txt'];
+const rootFiles = ['index.html', 'firebase.js', 'sitemap.xml', 'robots.txt', 'favicon.png', 'fibo_logo.png'];
 rootFiles.forEach(f => {
   if (fs.existsSync(f)) fs.copyFileSync(f, path.join(PUBLIC, f));
 });

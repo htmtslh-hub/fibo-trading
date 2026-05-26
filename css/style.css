@@ -89,6 +89,22 @@ h1,h2,h3,h4,h5,h6 {
   font-weight: 900;
   font-size: 22px;
   color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+}
+.nav-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+/* Hide text when logo image is present */
+.nav-logo:has(.nav-logo-img) {
+  font-size: 0;
+}
+.nav-logo:has(.nav-logo-img) .nav-logo-img {
+  height: 36px;
 }
 .nav-logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 36px; list-style: none; }
