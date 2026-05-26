@@ -95,7 +95,7 @@ h1,h2,h3,h4,h5,h6 {
   overflow: hidden;
 }
 .nav-logo-img {
-  height: 32px;
+  height: 64px;
   width: auto;
   display: block;
 }
@@ -104,7 +104,7 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 0;
 }
 .nav-logo:has(.nav-logo-img) .nav-logo-img {
-  height: 36px;
+  height: 72px;
 }
 .nav-logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 36px; list-style: none; }
@@ -626,13 +626,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
 
-@media (max-width: 768px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .stat-item { padding: 20px 12px; }
-  .stat-number { font-size: 28px; }
-  .hero-glow { display: none; }
-}
-
 /* ===== FORMS ===== */
 .input {
   width: 100%;
@@ -702,24 +695,45 @@ h1,h2,h3,h4,h5,h6 {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .stat-number { font-size: 30px; }
 }
 
 @media (max-width: 768px) {
   .nav { padding: 0 16px; height: 64px; }
   .nav-links { display: none; }
   .nav-mobile-toggle { display: block; }
+  .nav-logo-img { height: 48px; }
+  .nav-logo:has(.nav-logo-img) .nav-logo-img { height: 48px; }
+  .nav-right .btn { display: none; }
   .wrap { padding: 0 16px; }
   .section { padding: 60px 0; }
   .grid-3 { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
   .hero { padding: 40px 0 60px; }
   .hero-stats { gap: 24px; }
+  .hero-glow { display: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .btn-lg { padding: 14px 28px; font-size: 14px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat-item { padding: 20px 12px; }
+  .stat-number { font-size: 26px; }
+  .stat-label { font-size: 11px; }
+  .card::before { display: none; }
+  .card:hover { transform: none; box-shadow: none; }
+  .pulse-glow { animation: none; }
+  .featured-img { border-radius: 12px; }
+  .text-gradient { -webkit-text-fill-color: #fff; background: none; }
 }
 
 @media (max-width: 480px) {
   .hero h1 { font-size: 32px; }
   .hero-sub { font-size: 14px; }
   .card-body { padding: 16px; }
+  .stats-grid { gap: 8px; }
+  .stat-item { padding: 16px 8px; border-radius: 12px; }
+  .stat-number { font-size: 22px; }
+  .stat-label { font-size: 10px; }
+  .section { padding: 40px 0; }
+  .glass { border-radius: 16px; }
 }

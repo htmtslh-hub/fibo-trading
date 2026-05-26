@@ -102,9 +102,10 @@
   // === NAVBAR SHRINK ON SCROLL ===
   var nav = document.querySelector('.nav');
   if (nav) {
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
     window.addEventListener('scroll', function() {
       if (window.pageYOffset > 80) {
-        nav.style.height = '60px';
+        nav.style.height = isMobile ? '56px' : '60px';
         nav.style.boxShadow = '0 4px 30px rgba(0,0,0,.3)';
       } else {
         nav.style.height = '';
