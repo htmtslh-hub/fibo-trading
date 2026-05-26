@@ -1,9 +1,16 @@
 User-agent: *
 Allow: /
-Disallow: /admin
+Disallow: /pages/admin
 Disallow: /api/
 Disallow: /pages/checkout
 Disallow: /pages/payment
 Disallow: /pages/cart
 Disallow: /pages/thank-you
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://fibo.vn/sitemap.xml

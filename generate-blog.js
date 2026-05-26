@@ -16,6 +16,7 @@ const template = (post, slug) => `<!DOCTYPE html>
   <meta property="og:image" content="${post.image}">
   <meta property="og:type" content="article">
   <link rel="canonical" href="https://fibo.vn/pages/blog/${slug}">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css?v=10">
   <style>
@@ -64,7 +65,7 @@ const template = (post, slug) => `<!DOCTYPE html>
     <div class="post-content">
       <div class="post-meta"><span class="dot"></span><span>${post.category}</span><span>•</span><span>${post.readTime}</span></div>
       <h1 style="font-family:'Exo 2',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:24px;line-height:1.2;">${post.title}</h1>
-      <img src="${post.image}" alt="${post.title}" class="post-hero-img">
+      <img src="${post.image}" alt="${post.title}" class="post-hero-img" loading="lazy">
       ${post.content}
       <div class="post-cta"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;">Muon hoc trading co he thong?</h3><p style="color:var(--text-2);font-size:14px;margin-bottom:20px;">Khoa hoc Pro Trading 2.0 — Gan 50 bai tu A den Z</p><a href="../course-detail.html?id=1" class="btn btn-primary">Xem khoa hoc</a></div>
     </div>
