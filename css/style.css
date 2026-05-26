@@ -3,15 +3,15 @@
   --bg-2: #101019;
   --bg-3: #15151F;
   --bg-4: #1A1A26;
-  --border: rgba(255,255,255,.05);
-  --border-hover: rgba(255,255,255,.12);
+  --border: rgba(255,255,255,.08);
+  --border-hover: rgba(255,255,255,.16);
   --accent: #C8F560;
   --accent-2: #7BF5A0;
   --accent-gradient: linear-gradient(135deg, #C8F560 0%, #7BF5A0 100%);
   --accent-glow: rgba(200,245,96,0.08);
   --text: #FFFFFF;
-  --text-2: #8B8BA8;
-  --text-3: #55556E;
+  --text-2: #A0A0BE;
+  --text-3: #6B6B88;
   --radius: 20px;
   --radius-sm: 12px;
   --transition: all .3s cubic-bezier(.4,0,.2,1);
@@ -212,7 +212,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* ===== CARDS ===== */
 .card {
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.05);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -240,7 +240,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* ===== GLASSMORPHISM ===== */
 .glass {
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.05);
   border: 1px solid var(--border);
   backdrop-filter: blur(16px);
   border-radius: 24px;
@@ -349,7 +349,7 @@ h1,h2,h3,h4,h5,h6 {
 .feature-card {
   padding: 32px;
   border-radius: var(--radius);
-  background: rgba(255,255,255,.02);
+  background: rgba(255,255,255,.04);
   border: 1px solid var(--border);
   transition: var(--transition);
 }
@@ -376,7 +376,7 @@ h1,h2,h3,h4,h5,h6 {
 .testimonial {
   padding: 28px;
   border-radius: var(--radius);
-  background: rgba(255,255,255,.02);
+  background: rgba(255,255,255,.04);
   border: 1px solid var(--border);
   transition: var(--transition);
 }
@@ -588,7 +588,7 @@ h1,h2,h3,h4,h5,h6 {
 .stat-item {
   padding: 32px 16px;
   border-radius: var(--radius);
-  background: rgba(255,255,255,.02);
+  background: rgba(255,255,255,.04);
   border: 1px solid var(--border);
   transition: var(--transition);
 }
@@ -630,7 +630,7 @@ h1,h2,h3,h4,h5,h6 {
 .input {
   width: 100%;
   padding: 14px 18px;
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.05);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--text);
@@ -640,7 +640,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 .input:focus {
   outline: none;
-  border-color: rgba(255,255,255,.2);
+  border-color: rgba(255,255,255,.25);
+  background: rgba(255,255,255,.07);
 }
 .input::placeholder { color: var(--text-3); }
 
@@ -661,7 +662,7 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 11px;
   font-weight: 600;
 }
-.badge-accent { background: var(--accent-glow); color: var(--accent); }
+.badge-accent { background: rgba(200,245,96,.12); color: var(--accent); }
 .badge-warn { background: rgba(245,166,35,.08); color: #F5A623; }
 .badge-green { background: rgba(16,185,129,.08); color: #10B981; }
 
