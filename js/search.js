@@ -1,5 +1,6 @@
 (function() {
   var posts = [
+    { slug: 'luat-bo-gau', title: 'Luật Bò Gấu — Nguyên tắc xác định xu hướng mà trader phải nắm', category: 'Kiến thức' },
     { slug: 'fibonacci-trong-trading', title: 'Fibonacci trong Trading — Cách sử dụng hiệu quả để xác định vùng giá', category: 'Kiến thức' },
     { slug: 'thuat-ngu-trading', title: 'Từ điển Trading — Giải thích 40+ thuật ngữ trader cần biết', category: 'Kiến thức' },
     { slug: 'tu-do-tai-chinh', title: 'Tự do tài chính — Đích đến thực sự của trader', category: 'Tư duy' },
