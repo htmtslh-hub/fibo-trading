@@ -3,9 +3,14 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/:path*" }
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/google18633e1777f97db5.html", "destination": "/google18633e1777f97db5.html" }
   ],
   "headers": [
+    {
+      "source": "/google18633e1777f97db5.html",
+      "headers": [{ "key": "Content-Type", "value": "text/html" }]
+    },
     {
       "source": "/css/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
