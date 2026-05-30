@@ -1,0 +1,89 @@
+{
+  "prompt_name": "Chinese Watercolor Drama Illustration",
+  "version": "3.0",
+  "model": "Google Imagen",
+
+  "art_style": {
+    "primary": "Chinese ink wash and watercolor drama illustration",
+    "technique": "traditional Chinese sumi-e ink brush technique mixed with modern editorial fashion illustration",
+    "medium": "ink pen + watercolor on paper"
+  },
+
+  "linework": {
+    "type": "Precise sharp thin black ink pen outlines",
+    "quality": "clean crisp confident linework",
+    "contrast": "high contrast between dark wet ink areas and light dry watercolor"
+  },
+
+  "coloring": {
+    "method": "very selective sparse watercolor color washes applied only to clothing and skin",
+    "white_space": "large areas of pure white paper left untouched",
+    "palette": "muted desaturated color palette",
+    "colors": ["lavender purple", "charcoal grey", "warm wood brown"],
+    "ink_effect": "subtle ink wash gradients on dark suit fabric"
+  },
+
+  "scene": {
+    "location": "bank counter",
+    "background": "minimal background with bank counter and glass partition lightly sketched",
+    "props": ["wood grain bank counter", "glass partition", "computer monitor", "documents"]
+  },
+
+  "characters": [
+    {
+      "role": "main_female",
+      "description": "elegant slim Chinese woman",
+      "clothing": "lavender purple bow-tie blouse and white high-waisted pencil skirt",
+      "accessories": "small designer handbag, earrings, wristwatch",
+      "hair": "black hair in elegant updo bun",
+      "action": "standing at bank reception desk talking to teller",
+      "expression": "confident, composed"
+    },
+    {
+      "role": "bank_teller",
+      "description": "young female bank teller",
+      "clothing": "black suit uniform with tie",
+      "position": "behind the glass partition",
+      "expression": "smiling, professional"
+    },
+    {
+      "role": "supporting_male",
+      "description": "heavyset stocky middle-aged Chinese man",
+      "clothing": "dark charcoal suit with patterned tie, white dress shirt",
+      "action": "hand on hip looking serious",
+      "position": "standing behind the main woman"
+    }
+  ],
+
+  "quality": {
+    "proportions": "realistic human proportions",
+    "faces": "highly detailed facial features",
+    "texture": "subtle paper texture, wood grain texture on counter"
+  },
+
+  "mood": {
+    "atmosphere": "sophisticated mature Chinese TV drama atmosphere",
+    "style_reference": "premium Chinese web novel manhua illustration style"
+  },
+
+  "composition": {
+    "layout": "vertical",
+    "aspect_ratio": "9:16"
+  },
+
+  "full_prompt": "Chinese ink wash and watercolor drama illustration at a bank counter scene. An elegant slim Chinese woman wearing a lavender purple bow-tie blouse and white high-waisted pencil skirt, holding a small designer handbag, standing at a bank reception desk talking to a teller. Behind the glass partition, a young female bank teller in black suit uniform smiling. Behind the main woman, a heavyset stocky middle-aged Chinese man in dark charcoal suit with patterned tie, white dress shirt, hand on hip looking serious. Precise sharp thin black ink pen outlines with very selective sparse watercolor color washes applied only to clothing and skin, large areas of pure white paper left untouched, muted desaturated color palette of lavender purple and charcoal grey and warm wood brown, traditional Chinese sumi-e ink brush technique mixed with modern editorial fashion illustration, realistic human proportions and highly detailed facial features, minimal background with bank counter and glass partition lightly sketched, subtle ink wash gradients on dark suit fabric, wood grain texture on counter, clean crisp confident linework, high contrast between dark wet ink areas and light dry watercolor, sophisticated mature Chinese TV drama atmosphere, premium Chinese web novel manhua illustration style",
+
+  "prompt_template": "{art_style.primary} at a {scene.location} scene. {characters[0].description} wearing {characters[0].clothing}, {characters[0].action}. {characters[1].description} in {characters[1].clothing} {characters[1].expression}. {characters[2].description} in {characters[2].clothing}, {characters[2].action}. {linework.type} with {coloring.method}, {coloring.white_space}, {coloring.palette} of {coloring.colors}, {art_style.technique}, {quality.proportions} and {quality.faces}, {scene.background}, {coloring.ink_effect}, {linework.quality}, {linework.contrast}, {mood.atmosphere}, {mood.style_reference}",
+
+  "usage_guide": {
+    "how_to_customize": "Thay đổi phần 'scene' và 'characters' để tạo cảnh mới với cùng style",
+    "keep_unchanged": ["art_style", "linework", "coloring", "quality", "mood"],
+    "example_scenes": [
+      "luxury restaurant dinner scene",
+      "CEO office confrontation scene",
+      "rainy street emotional farewell scene",
+      "wedding ceremony scene",
+      "hospital bedside dramatic scene"
+    ]
+  }
+}

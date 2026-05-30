@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ảnh đã tạo</title>
+    <style>
+        body { background: #1a1a2e; color: #fff; font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        h1 { color: #e94560; }
+        h2 { color: #0f3460; background: #e94560; display: inline-block; padding: 8px 20px; border-radius: 8px; }
+        .img-container { margin: 30px auto; max-width: 600px; }
+        img { max-width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+        hr { border: 1px solid #333; margin: 40px 0; }
+    </style>
+</head>
+<body>
+    <h1>🎨 So sánh ảnh tạo ra</h1>
+    
+    <hr>
+    <h2>Phiên bản 3 (Gần nhất với ảnh mẫu)</h2>
+    <div class="img-container">
+        <img id="img3" alt="Phiên bản 3">
+    </div>
+
+    <hr>
+    <h2>Phiên bản 2</h2>
+    <div class="img-container">
+        <img id="img2" alt="Phiên bản 2">
+    </div>
+
+    <hr>
+    <h2>Phiên bản 1</h2>
+    <div class="img-container">
+        <img id="img1" alt="Phiên bản 1">
+    </div>
+
+    <script>
+        // Load images as base64 from local files using fetch
+        async function loadImage(path, imgId) {
+            try {
+                const resp = await fetch(path);
+                const blob = await resp.blob();
+                const url = URL.createObjectURL(blob);
+                document.getElementById(imgId).src = url;
+            } catch(e) {
+                document.getElementById(imgId).alt = "Không load được ảnh";
+            }
+        }
+    </script>
+</body>
+</html>
