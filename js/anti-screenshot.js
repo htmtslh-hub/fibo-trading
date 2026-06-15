@@ -217,28 +217,46 @@
   }, true);
 
   // ══════════════════════════════════════════════════════════════
-  //  7. Visibility change detection (screen recording / tab switch)
+  //  7. Centralized blur state manager
+  //     Prevents conflicts between different blur triggers
   // ══════════════════════════════════════════════════════════════
-  // When the page is not visible (e.g., screen capture tool opens),
-  // blank the page content
+  const blurReasons = new Set();
+
+  function applyBlur(reason, blurAmount) {
+    blurReasons.add(reason);
+    document.body.style.filter = 'blur(' + (blurAmount || 20) + 'px)';
+  }
+
+  function removeBlur(reason) {
+    blurReasons.delete(reason);
+    if (blurReasons.size === 0) {
+      document.body.style.filter = '';
+    }
+  }
+
+  function clearAllBlur() {
+    blurReasons.clear();
+    document.body.style.filter = '';
+  }
+
+  // ══════════════════════════════════════════════════════════════
+  //  8. Visibility change detection (screen recording / tab switch)
+  // ══════════════════════════════════════════════════════════════
+  // blankOnHide is disabled by default to avoid issues
   let blankOnHide = false;
 
   document.addEventListener('visibilitychange', function () {
     if (document.hidden && blankOnHide) {
-      document.body.style.filter = 'blur(30px)';
+      applyBlur('visibility', 30);
     } else {
-      document.body.style.filter = '';
+      removeBlur('visibility');
     }
   });
 
   // ══════════════════════════════════════════════════════════════
-  //  8. Screen Capture API protection
-  //     Uses the experimental Screen Capture API to detect when
-  //     the page is being captured and blur it
+  //  9. Screen Capture API protection
   // ══════════════════════════════════════════════════════════════
-  if ('getDisplayMedia' in navigator.mediaDevices) {
-    // Override getDisplayMedia to make it harder to use
-    const origGetDisplayMedia = navigator.mediaDevices.getDisplayMedia.bind(navigator.mediaDevices);
+  if (navigator.mediaDevices && 'getDisplayMedia' in navigator.mediaDevices) {
     navigator.mediaDevices.getDisplayMedia = function () {
       showShield(3000);
       return Promise.reject(new DOMException('Screen capture is disabled on this page.', 'NotAllowedError'));
@@ -246,29 +264,70 @@
   }
 
   // ══════════════════════════════════════════════════════════════
-  //  9. DevTools detection (debugger-based)
-  //     Detects when DevTools is open by checking timing differences
+  // 10. DevTools detection (improved — avoids false positives)
+  //     Uses higher threshold + consecutive detection to reduce
+  //     false positives from browser sidebars, extensions, etc.
   // ══════════════════════════════════════════════════════════════
   let devtoolsOpen = false;
+  let devtoolsConsecutiveHits = 0;
+  const DEVTOOLS_THRESHOLD = 200;       // px — higher to avoid false positives
+  const DEVTOOLS_REQUIRED_HITS = 3;     // must detect N times in a row
 
   function detectDevTools() {
-    const widthThreshold = window.outerWidth - window.innerWidth > 160;
-    const heightThreshold = window.outerHeight - window.innerHeight > 160;
+    const widthDiff = window.outerWidth - window.innerWidth;
+    const heightDiff = window.outerHeight - window.innerHeight;
 
-    if (widthThreshold || heightThreshold) {
-      if (!devtoolsOpen) {
+    // On some browsers outerWidth/outerHeight can be 0 or negative
+    // when window is minimized or not fully initialized
+    if (window.outerWidth === 0 || window.outerHeight === 0) {
+      return;
+    }
+
+    const isLikelyOpen = widthDiff > DEVTOOLS_THRESHOLD || heightDiff > DEVTOOLS_THRESHOLD;
+
+    if (isLikelyOpen) {
+      devtoolsConsecutiveHits++;
+      if (devtoolsConsecutiveHits >= DEVTOOLS_REQUIRED_HITS && !devtoolsOpen) {
         devtoolsOpen = true;
-        document.body.style.filter = 'blur(20px)';
+        applyBlur('devtools', 20);
       }
     } else {
+      devtoolsConsecutiveHits = 0;
       if (devtoolsOpen) {
         devtoolsOpen = false;
-        document.body.style.filter = '';
+        removeBlur('devtools');
       }
     }
   }
 
   setInterval(detectDevTools, 1000);
+
+  // ══════════════════════════════════════════════════════════════
+  // 11. Safeguard: ensure blur is cleared on page load & focus
+  //     Fixes cases where blur persists across navigations or
+  //     after browser restores a cached (bfcache) page
+  // ══════════════════════════════════════════════════════════════
+  window.addEventListener('pageshow', function () {
+    clearAllBlur();
+    devtoolsConsecutiveHits = 0;
+    devtoolsOpen = false;
+  });
+
+  window.addEventListener('focus', function () {
+    // Small delay to let other handlers run first
+    setTimeout(function () {
+      removeBlur('visibility');
+      // Re-check devtools so we don't accidentally leave it clear
+      detectDevTools();
+    }, 100);
+  });
+
+  // Also clear on initial DOMContentLoaded just in case
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', clearAllBlur);
+  } else {
+    clearAllBlur();
+  }
 
   // ══════════════════════════════════════════════════════════════
   // 10. Console protection message

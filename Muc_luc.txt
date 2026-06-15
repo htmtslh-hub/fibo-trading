@@ -1,39 +1,73 @@
-Ten khoa hoc: Pro trading
-Nội dung khóa học
-0. Bạn hãy đi đúng lộ trình chi tiết này để đạt kết quả nhanh nhất		
-1. Khái Quát Về Cấu Trúc Thị Trường – Phần 1		
-2. Khái Quát Về Cấu Trúc Thị Trường – Phần 2		
-3. Xác Định Cấu Trúc Thị Trường		
-4. Chọn Vùng Mua Bán – Vùng Mua Bán Khác Vùng Bò Gấu Như Thế Nào?		
-5. Thực Hành Đọc Thấu Cấu Trúc Thị Trường		
-6. Bắt Đầu Xây Dựng Quy Tắc Vào Lệnh		
-7. Điểm Vào Lệnh – Dừng Lỗ Theo Quy Tắc Ở Đâu?		
-8. Yếu Tố Bên Trong 1		
-9. Yếu Tố Bên Trong 2		
-10. Yếu Tố Bên Trong 3		
-11. Tổng Kết Các Yếu Tố Bên Trong		
-12. Tại Sao Nên Luyện Tập Điểm Vào Này?		
-13. Yếu Tố Bên Ngoài 1		
-14. Yếu Tố Bên Ngoài 2		
-15. Yếu Tố Bên Ngoài 3		
-16. Tổng Kết Các Yếu Tố Bên Ngoài		
-17. Điểm Vào Lệnh Sớm		
-18. Điểm Vào Lệnh Muộn – Limit		
-19. Chốt Lời		
-20. Các Kịch Bản – Gặp Là Vào		
-21. Cách Thống Kê, Xây Dựng Bộ Quy Tắc Vào Lệnh 1		
-21.1. Tải Template Dùng Để Thống Kê, Backtest, Nhật Ký Giao Dịch		
-22. Cách Thống Kê, Xây Dựng Bộ Quy Tắc Vào Lệnh – Phần 2		
-22.1. Một số bài tập mẫu tốt từ mọi người		
-23. Backtest Kiểm Chứng Kiểm Chứng Phương Pháp		
-23.1. Tải Công Cụ Backtest Để Thực Hành		
-23.2. Hướng dẫn sử dụng Phần mềm Backtest		
-24. Thực Hành Backtest Thực Tế		
-25. (Bonus) Hướng Dẫn Thêm Về Đọc Nến & Cấu Trúc Thị Trường		
-26. (New) Công cụ tự động tính toán khối lượng vào lệnh để quản lý vốn		
-27. Giải Đáp Các Câu Hỏi Thường Gặp		
-28. Tổng Kết		
-29. (Update) Kết Hợp Điểm Vào Lệnh Với Bộ EMA Cực Kỳ Hiệu Quả		
-30. (Update) Những Điểm Vào Lệnh Hiệu Quả Khác Kết Hợp Luật Bò Gấu Và EMA		
-31. (Update) Làm Sao Xác Định Cản Gần Dễ Bị Phá Và Khó Bị Phá, Mô Hình Tỉ Lệ Cao Hơn		
-32. (Mới) Những Điểm Cần Lưu Ý Trong Phương Pháp Giúp Giảm Lệnh Xấu
+Tên khóa học: Pro Trading 2.0
+Nội dung khóa học: 8 phần • 50 bài học
+
+=== Phần I – Kiến thức nền tảng (8 bài) ===
+1. Lộ trình trading
+2. Mình Sẽ Học Trading Như Thế Nào
+3. Phân tích kỹ thuật từ cơ bản đến nâng cao
+4. Luật bò và gấu cơ bản
+5. Xu hướng thị trường chính xác
+6. Kháng cự và hỗ trợ
+7. Phương pháp giao dịch áp dụng mọi thị trường
+8. Các sai lầm trong giao dịch
+
+=== Phần II – Cấu trúc Bò và Gấu (8 bài) ===
+1. Cách đọc cấu trúc thị trường
+2. Cấu trúc thị trường duy nhất
+3. Bản chất của bò và gấu
+4. Đọc nến chuyên sâu
+5. Vùng bò gấu mạnh
+6. Các xu hướng trong giao dịch
+7. Xác định lực hồi cạn kiệt
+8. Điểm vào lệnh khi giá đi ngang – vũ khí bí mật
+
+=== Phần III – Đọc nến (5 bài) ===
+1. Đọc nến
+2. Nến engulfing
+3. Giao dịch trong các khung thời gian
+4. Yếu tố quan trọng khi vào lệnh
+5. Đà của lực mua bán
+
+=== Phần IV – Kỹ thuật vào lệnh (11 bài) ===
+1. Kỹ thuật vào lệnh
+2. Phương pháp Pullback
+3. Phá giả
+4. Phương pháp giao dịch Breakout
+5. Break and Retest
+6. Điểm vào lệnh hoàn hảo
+7. Giao dịch đa khung thời gian
+8. Phương pháp Fibonacci
+9. Phương pháp kết hợp
+10. Tín hiệu vào lệnh tốt
+11. Phương pháp Limit
+
+=== Phần V – Quản lý lệnh và vốn (6 bài) ===
+1. Cách thoát lệnh
+2. Quản lý rủi ro
+3. Kiếm tiền từ trade quỹ
+4. Toàn tập cách thoát lệnh hiệu quả nhất – Phương pháp chốt lời
+5. Quản lý rủi ro hơn mày mò phương pháp
+6. Cách giao dịch với tài khoản nhỏ – Kiếm tiền từ trade quỹ
+
+=== Phần VI – Các loại phong cách giao dịch (10 bài) ===
+1. Phương pháp Scalping
+2. Day Trading
+3. Swing Trading
+4. Lọc sản phẩm
+5. Vàng
+6. Scalping từ A đến Z với Price Action – Đánh nhanh rút gọn
+7. Day Trading – Làm ít hưởng nhiều
+8. Tất tần tật về Swing Trading – Phương pháp trade trung hạn
+9. Cách lọc cặp tiền tốt để giao dịch
+10. Hiểu đặc tính vàng để trade vàng tốt hơn
+
+=== Phần VII – Thực chiến và các lỗi thường gặp (3 bài) ===
+1. Thực chiến Backtest
+2. Những lỗi vào lệnh và cách khắc phục triệt để
+3. Lập kế hoạch
+
+=== Phần VIII – Tâm lý trading (4 bài) ===
+1. Sự nhất quán
+2. Giao dịch như lính bắn tỉa
+3. Cách xử lý khi gặp lose streak
+4. Kinh nghiệm
