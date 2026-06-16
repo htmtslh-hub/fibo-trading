@@ -71,6 +71,23 @@
   </div>
 </nav>
 
+<!-- MOBILE NAV -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav-panel" id="mobilePanel">
+  <button class="mobile-nav-close" aria-label="Đóng menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <ul class="mobile-nav-links">
+    <li><a href="/" class="active">Trang chủ</a></li>
+    <li><a href="pages/blog.html">Bài viết</a></li>
+    <li><a href="pages/courses.html">Khóa học</a></li>
+    <li><a href="pages/cart.html">Giỏ hàng</a></li>
+  </ul>
+  <div class="mobile-nav-cta">
+    <a href="pages/course-detail.html?id=1" class="btn btn-primary btn-lg" style="width:100%;">Khóa học Pro</a>
+  </div>
+</div>
+
 <!-- HERO / FEATURED POST -->
 <section class="hero" style="padding:60px 0 80px;">
   <div class="wrap" style="position:relative;z-index:1;">
@@ -96,18 +113,22 @@
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat-item stat-green reveal reveal-delay-1">
+        <div class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7BF5A0" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <div class="stat-number" data-count="50" data-prefix="~">~0</div>
         <div class="stat-label">Bài học thực chiến</div>
       </div>
       <div class="stat-item stat-blue reveal reveal-delay-2">
+        <div class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3C82FF" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="stat-number" data-count="500" data-suffix="+">0</div>
         <div class="stat-label">Học viên đã tham gia</div>
       </div>
       <div class="stat-item stat-orange reveal reveal-delay-3">
+        <div class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFB43C" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <div class="stat-number">4.9<span style="font-size:18px;color:var(--text-2);">/5</span></div>
         <div class="stat-label">Đánh giá trung bình</div>
       </div>
       <div class="stat-item stat-purple reveal reveal-delay-4">
+        <div class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A078FF" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <div class="stat-number" data-count="100" data-suffix="%">0</div>
         <div class="stat-label">Cập nhật liên tục</div>
       </div>
@@ -122,14 +143,23 @@
       <div class="section-label">Bài viết mới</div>
       <h2 class="section-title text-gradient">Kiến thức & Tư duy Trader</h2>
     </div>
-    <div class="post-grid">
+    <div class="post-grid-asym">
+      <a href="pages/blog-post.html?slug=fibonacci-trong-trading" style="text-decoration:none;color:inherit;">
+        <div class="card card-green post-card-large reveal">
+          <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fibonacci trong Trading" class="post-card-img" loading="lazy">
+          <div class="post-card-body">
+            <div class="post-card-meta"><span class="dot"></span><span>Kiến thức</span><span>•</span><span>8 phút</span></div>
+            <div class="post-card-title">Fibonacci trong Trading — Cách sử dụng hiệu quả để xác định vùng giá</div>
+            <p class="post-card-excerpt">Fibonacci giúp xác định vùng giá tiềm năng mà thị trường có thể đảo chiều. Kết hợp với price action và cấu trúc thị trường để tìm entry chất lượng cao.</p>
+          </div>
+        </div>
+      </a>
       <a href="pages/blog-post.html?slug=tu-do-tai-chinh" style="text-decoration:none;color:inherit;">
         <div class="card card-blue reveal reveal-delay-1">
           <img src="https://images.pexels.com/photos/8052179/pexels-photo-8052179.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Tự do tài chính" class="post-card-img" loading="lazy">
           <div class="post-card-body">
             <div class="post-card-meta"><span class="dot"></span><span>Tư duy</span><span>•</span><span>5 phút</span></div>
             <div class="post-card-title">Tự do tài chính — Đích đến thực sự của trader</div>
-            <p class="post-card-excerpt">Tiền bạc chỉ là công cụ. Mục đích cuối cùng mà mọi trader hướng tới chính là sự tự do.</p>
           </div>
         </div>
       </a>
@@ -139,17 +169,6 @@
           <div class="post-card-body">
             <div class="post-card-meta"><span class="dot"></span><span>Mindset</span><span>•</span><span>4 phút</span></div>
             <div class="post-card-title">Chỉ số AQ — Yếu tố quyết định thành bại</div>
-            <p class="post-card-excerpt">Không phải IQ hay EQ, mà chính khả năng vượt khó mới quyết định ai thành công.</p>
-          </div>
-        </div>
-      </a>
-      <a href="pages/blog-post.html?slug=fibonacci-trong-trading" style="text-decoration:none;color:inherit;">
-        <div class="card card-green reveal reveal-delay-3">
-          <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fibonacci trong Trading" class="post-card-img" loading="lazy">
-          <div class="post-card-body">
-            <div class="post-card-meta"><span class="dot"></span><span>Kiến thức</span><span>•</span><span>8 phút</span></div>
-            <div class="post-card-title">Fibonacci trong Trading — Cách sử dụng hiệu quả</div>
-            <p class="post-card-excerpt">Fibonacci giúp xác định vùng giá tiềm năng mà thị trường có thể đảo chiều. Kết hợp với price action để tìm entry chất lượng cao.</p>
           </div>
         </div>
       </a>
@@ -252,14 +271,20 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2024 Fibo. All rights reserved.
+      &copy; 2026 Fibo. All rights reserved.
     </div>
   </div>
 </footer>
 
+<!-- BACK TO TOP -->
+<button class="back-to-top" aria-label="Lên đầu trang">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
 <script src="js/cart-badge.js?v=1"></script>
 <script src="js/search.js?v=1"></script>
-<script src="js/animations.js?v=1"></script>
+<script src="js/animations.js?v=2"></script>
+<script src="js/mobile-nav.js?v=1"></script>
 <script type="module" src="js/analytics.js?v=1"></script>
 <script src="js/anti-screenshot.js?v=2"></script>
 </body>
