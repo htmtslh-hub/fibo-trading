@@ -180,6 +180,19 @@
 </section>
 
 <!-- COURSE BANNER -->
+<style>
+  .hp-countdown { background:linear-gradient(135deg,rgba(239,68,68,0.12),rgba(249,115,22,0.10)); border:1px solid rgba(239,68,68,0.25); border-radius:12px; padding:14px 16px; position:relative; overflow:hidden; }
+  .hp-countdown::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:conic-gradient(from 0deg,transparent,rgba(239,68,68,0.06),transparent,rgba(249,115,22,0.06),transparent); animation:hp-cd-rotate 8s linear infinite; }
+  @keyframes hp-cd-rotate { to { transform:rotate(360deg); } }
+  .hp-cd-inner { position:relative; z-index:1; }
+  .hp-cd-label { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:#ef4444; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; }
+  .hp-cd-label svg { animation:hp-cd-pulse 1.5s ease-in-out infinite; }
+  @keyframes hp-cd-pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.6;transform:scale(.9);} }
+  .hp-cd-boxes { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+  .hp-cd-box { background:rgba(0,0,0,0.3); border-radius:8px; padding:8px 4px; text-align:center; border:1px solid rgba(255,255,255,0.06); }
+  .hp-cd-num { font-family:'Exo 2',sans-serif; font-size:20px; font-weight:900; color:#fff; line-height:1; display:block; }
+  .hp-cd-lbl { font-size:9px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.5px; margin-top:3px; display:block; }
+</style>
 <section class="section" style="background:var(--bg-2);position:relative;overflow:hidden;">
   <div style="position:absolute;top:-60px;right:10%;width:350px;height:350px;background:radial-gradient(circle,rgba(200,245,96,.045) 0%,transparent 70%);pointer-events:none;"></div>
   <div class="wrap">
@@ -193,8 +206,22 @@
           <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:900;margin-bottom:12px;" class="text-gradient">Pro Trading 2.0 — Gần 50 bài học thực chiến</h2>
           <p style="color:var(--text-2);font-size:14px;line-height:1.7;max-width:500px;">Xây dựng hệ thống giao dịch hoàn chỉnh từ A-Z. Cấu trúc thị trường, điểm vào lệnh, backtest, quản lý vốn.</p>
         </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-          <div style="font-family:'Exo 2',sans-serif;font-size:28px;font-weight:900;color:#fff;">1.399.000đ <span style="font-size:14px;color:var(--text-3);text-decoration:line-through;font-weight:400;">5.000.000đ</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;min-width:260px;">
+          <div class="hp-countdown">
+            <div class="hp-cd-inner">
+              <div class="hp-cd-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Flash Sale — Kết thúc sau
+              </div>
+              <div class="hp-cd-boxes">
+                <div class="hp-cd-box"><span class="hp-cd-num" id="hpDays">00</span><span class="hp-cd-lbl">Ngày</span></div>
+                <div class="hp-cd-box"><span class="hp-cd-num" id="hpHours">00</span><span class="hp-cd-lbl">Giờ</span></div>
+                <div class="hp-cd-box"><span class="hp-cd-num" id="hpMins">00</span><span class="hp-cd-lbl">Phút</span></div>
+                <div class="hp-cd-box"><span class="hp-cd-num" id="hpSecs">00</span><span class="hp-cd-lbl">Giây</span></div>
+              </div>
+            </div>
+          </div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:28px;font-weight:900;color:#fff;">399.000đ <span style="font-size:14px;color:var(--text-3);text-decoration:line-through;font-weight:400;">5.000.000đ</span></div>
           <a href="pages/course-detail.html?id=1" class="btn btn-primary btn-lg">Xem chi tiết</a>
         </div>
       </div>
@@ -287,5 +314,29 @@
 <script src="js/mobile-nav.js?v=1"></script>
 <script type="module" src="js/analytics.js?v=1"></script>
 <script src="js/anti-screenshot.js?v=2"></script>
+<script>
+// Countdown Sale - loops every 3 days infinitely (same logic as course-detail)
+(function() {
+  var CYCLE_MS = 3 * 24 * 60 * 60 * 1000;
+  var EPOCH = new Date('2026-01-01T00:00:00').getTime();
+  function updateCountdown() {
+    var now = Date.now();
+    var elapsed = (now - EPOCH) % CYCLE_MS;
+    var remaining = CYCLE_MS - elapsed;
+    var days = Math.floor(remaining / (24*60*60*1000));
+    var hours = Math.floor((remaining % (24*60*60*1000)) / (60*60*1000));
+    var mins = Math.floor((remaining % (60*60*1000)) / (60*1000));
+    var secs = Math.floor((remaining % (60*1000)) / 1000);
+    var d=document.getElementById('hpDays'), h=document.getElementById('hpHours'),
+        m=document.getElementById('hpMins'), s=document.getElementById('hpSecs');
+    if(d) d.textContent=String(days).padStart(2,'0');
+    if(h) h.textContent=String(hours).padStart(2,'0');
+    if(m) m.textContent=String(mins).padStart(2,'0');
+    if(s) s.textContent=String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+</script>
 </body>
 </html>

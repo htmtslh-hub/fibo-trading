@@ -86,6 +86,21 @@
             <span style="color:var(--accent);font-size:13px;">★★★★★</span>
             <span style="color:var(--text-3);font-size:12px;">4.9 (500+ học viên)</span>
           </div>
+          <!-- Mini Countdown Sale -->
+          <div id="courseCountdown" style="background:linear-gradient(135deg,rgba(239,68,68,0.12),rgba(249,115,22,0.10));border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:10px 12px;margin-bottom:14px;position:relative;overflow:hidden;">
+            <div style="position:relative;z-index:1;">
+              <div style="display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#ef4444;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Flash Sale
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;">
+                <div style="background:rgba(0,0,0,0.3);border-radius:6px;padding:6px 2px;text-align:center;border:1px solid rgba(255,255,255,0.06);"><span id="crDays" style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:900;color:#fff;display:block;">00</span><span style="font-size:8px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;display:block;">Ngày</span></div>
+                <div style="background:rgba(0,0,0,0.3);border-radius:6px;padding:6px 2px;text-align:center;border:1px solid rgba(255,255,255,0.06);"><span id="crHours" style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:900;color:#fff;display:block;">00</span><span style="font-size:8px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;display:block;">Giờ</span></div>
+                <div style="background:rgba(0,0,0,0.3);border-radius:6px;padding:6px 2px;text-align:center;border:1px solid rgba(255,255,255,0.06);"><span id="crMins" style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:900;color:#fff;display:block;">00</span><span style="font-size:8px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;display:block;">Phút</span></div>
+                <div style="background:rgba(0,0,0,0.3);border-radius:6px;padding:6px 2px;text-align:center;border:1px solid rgba(255,255,255,0.06);"><span id="crSecs" style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:900;color:#fff;display:block;">00</span><span style="font-size:8px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;display:block;">Giây</span></div>
+              </div>
+            </div>
+          </div>
           <div style="display:flex;align-items:center;justify-content:space-between;">
             <div>
               <span class="card-price">399.000đ</span> <span style="font-size:13px;color:var(--text-3);text-decoration:line-through;">5.000.000đ</span>
@@ -142,5 +157,28 @@
 <script src="../js/mobile-nav.js?v=1"></script>
 <script type="module" src="../js/analytics.js?v=1"></script>
 <script src="../js/anti-screenshot.js?v=2"></script>
+<script>
+(function() {
+  var CYCLE_MS = 3 * 24 * 60 * 60 * 1000;
+  var EPOCH = new Date('2026-01-01T00:00:00').getTime();
+  function updateCountdown() {
+    var now = Date.now();
+    var elapsed = (now - EPOCH) % CYCLE_MS;
+    var remaining = CYCLE_MS - elapsed;
+    var days = Math.floor(remaining / (24*60*60*1000));
+    var hours = Math.floor((remaining % (24*60*60*1000)) / (60*60*1000));
+    var mins = Math.floor((remaining % (60*60*1000)) / (60*1000));
+    var secs = Math.floor((remaining % (60*1000)) / 1000);
+    var d=document.getElementById('crDays'), h=document.getElementById('crHours'),
+        m=document.getElementById('crMins'), s=document.getElementById('crSecs');
+    if(d) d.textContent=String(days).padStart(2,'0');
+    if(h) h.textContent=String(hours).padStart(2,'0');
+    if(m) m.textContent=String(mins).padStart(2,'0');
+    if(s) s.textContent=String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+</script>
 </body>
 </html>
