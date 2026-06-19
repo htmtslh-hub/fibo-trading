@@ -16,7 +16,7 @@
     "name": "Pro Trading 2.0",
     "description": "Khóa học xây dựng hệ thống giao dịch hoàn chỉnh từ A đến Z. Gần 50 bài học thực chiến.",
     "provider": { "@type": "Organization", "name": "Fibo", "url": "https://fibo.vn" },
-    "offers": { "@type": "Offer", "price": "1399000", "priceCurrency": "VND", "availability": "https://schema.org/InStock" }
+    "offers": { "@type": "Offer", "price": "399000", "priceCurrency": "VND", "availability": "https://schema.org/InStock" }
   }
   </script>
   <script type="application/ld+json">
@@ -159,6 +159,89 @@
     @media (max-width: 1024px) {
       .detail-grid { grid-template-columns: 1fr; }
       .detail-sidebar { position: static; }
+    }
+
+    /* Countdown Sale Banner */
+    .sale-countdown {
+      background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(249,115,22,0.10));
+      border: 1px solid rgba(239,68,68,0.25);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sale-countdown::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(239,68,68,0.06), transparent, rgba(249,115,22,0.06), transparent);
+      animation: sale-rotate 8s linear infinite;
+    }
+    @keyframes sale-rotate {
+      to { transform: rotate(360deg); }
+    }
+    .sale-countdown-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .sale-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ef4444;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .sale-label svg {
+      animation: sale-pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes sale-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.9); }
+    }
+    .countdown-boxes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .countdown-box {
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+      padding: 10px 4px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .countdown-num {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+    .countdown-label {
+      font-size: 10px;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+      display: block;
+    }
+    .sale-save {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-3);
+      text-align: center;
+    }
+    .sale-save strong {
+      color: #ef4444;
     }
   </style>
 </head>
@@ -440,9 +523,24 @@
           <div style="width:100%;aspect-ratio:16/9;border-radius:var(--radius-sm);overflow:hidden;margin-bottom:20px;">
             <img src="https://images.pexels.com/photos/5833752/pexels-photo-5833752.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Pro Trading 2.0" style="width:100%;height:100%;object-fit:cover;">
           </div>
+          <!-- Countdown Sale -->
+          <div class="sale-countdown" id="saleCountdown">
+            <div class="sale-countdown-inner">
+              <div class="sale-label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Flash Sale — Kết thúc sau
+              </div>
+              <div class="countdown-boxes">
+                <div class="countdown-box"><span class="countdown-num" id="cdDays">00</span><span class="countdown-label">Ngày</span></div>
+                <div class="countdown-box"><span class="countdown-num" id="cdHours">00</span><span class="countdown-label">Giờ</span></div>
+                <div class="countdown-box"><span class="countdown-num" id="cdMins">00</span><span class="countdown-label">Phút</span></div>
+                <div class="countdown-box"><span class="countdown-num" id="cdSecs">00</span><span class="countdown-label">Giây</span></div>
+              </div>
+              <div class="sale-save">Tiết kiệm <strong>4.601.000đ</strong> so với giá gốc</div>
+            </div>
+          </div>
           <div style="margin-bottom:20px;">
-            <span style="font-family:'Exo 2',sans-serif;font-size:36px;font-weight:900;color:#fff;">1.399.000</span><span style="color:var(--text-3);font-size:14px;">đ</span> <span style="font-size:14px;color:var(--text-3);text-decoration:line-through;margin-left:8px;">5.000.000đ</span>
-            <span style="color:var(--text-3);font-size:14px;">đ</span>
+            <span style="font-family:'Exo 2',sans-serif;font-size:36px;font-weight:900;color:#fff;">399.000</span><span style="color:var(--text-3);font-size:14px;">đ</span> <span style="font-size:14px;color:var(--text-3);text-decoration:line-through;margin-left:8px;">5.000.000đ</span>
           </div>
           <button class="btn btn-primary btn-lg" style="width:100%;margin-bottom:12px;" onclick="addToCart()">Thêm vào giỏ hàng</button>
           <a href="cart.html" class="btn btn-outline btn-lg" style="width:100%;">Mua ngay</a>
@@ -495,13 +593,42 @@
 <script type="module" src="../js/analytics.js?v=1"></script>
 <script>
 function addToCart() {
-  var added = Cart.add('1', 'Pro Trading 2.0', 1399000);
+  var added = Cart.add('1', 'Pro Trading 2.0', 399000);
   if (!added) {
     showToast('Khóa học đã có trong giỏ hàng!');
   } else {
     showToast('Đã thêm vào giỏ hàng!');
   }
 }
+
+// Countdown Sale - loops every 3 days infinitely
+(function() {
+  var CYCLE_MS = 3 * 24 * 60 * 60 * 1000; // 3 days in ms
+  var EPOCH = new Date('2026-01-01T00:00:00').getTime(); // fixed reference point
+
+  function updateCountdown() {
+    var now = Date.now();
+    var elapsed = (now - EPOCH) % CYCLE_MS;
+    var remaining = CYCLE_MS - elapsed;
+
+    var days = Math.floor(remaining / (24 * 60 * 60 * 1000));
+    var hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+    var mins = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
+    var secs = Math.floor((remaining % (60 * 1000)) / 1000);
+
+    var dEl = document.getElementById('cdDays');
+    var hEl = document.getElementById('cdHours');
+    var mEl = document.getElementById('cdMins');
+    var sEl = document.getElementById('cdSecs');
+    if (dEl) dEl.textContent = String(days).padStart(2, '0');
+    if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+    if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+    if (sEl) sEl.textContent = String(secs).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
 function toggleSection(header) {
   var section = header.parentElement;
   section.classList.toggle('open');
