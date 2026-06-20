@@ -1005,3 +1005,246 @@ img.lazy-loaded {
   .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
   .toast { bottom: 20px; font-size: 13px; padding: 12px 18px; }
 }
+
+/* ===== FREE TRIAL (HỌC THỬ) ===== */
+
+/* Trial badge on curriculum items */
+.curriculum-item.is-trial {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(200,245,96,0.15);
+  background: rgba(200,245,96,0.04);
+}
+.curriculum-item.is-trial:hover {
+  border-color: rgba(200,245,96,0.35);
+  background: rgba(200,245,96,0.08);
+  transform: translateX(4px);
+}
+.trial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--accent-glow);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.trial-play-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.curriculum-item.is-trial:hover .trial-play-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(200,245,96,0.4);
+}
+.curriculum-item.is-trial .curriculum-num { display: none; }
+
+/* Trial CTA button */
+.btn-trial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--accent);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn-trial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-trial:hover::before { opacity: 0.1; }
+.btn-trial:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(200,245,96,0.2);
+}
+.btn-trial svg, .btn-trial span { position: relative; z-index: 1; }
+
+/* Trial Modal */
+.trial-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.trial-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.trial-modal {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+.trial-modal-overlay.active .trial-modal {
+  transform: translateY(0) scale(1);
+}
+.trial-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-3);
+  transition: var(--transition);
+}
+.trial-modal-close:hover {
+  background: rgba(255,255,255,0.12);
+  color: var(--text);
+}
+.trial-modal-title {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.trial-modal-subtitle {
+  color: var(--text-3);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+.trial-lesson-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.trial-lesson-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+.trial-lesson-item:hover {
+  border-color: rgba(200,245,96,0.3);
+  background: rgba(200,245,96,0.06);
+  transform: translateY(-2px);
+}
+.trial-lesson-play {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.trial-lesson-item:hover .trial-lesson-play {
+  transform: scale(1.08);
+  box-shadow: 0 0 16px rgba(200,245,96,0.35);
+}
+.trial-lesson-play svg { color: var(--bg); }
+.trial-lesson-info { flex: 1; }
+.trial-lesson-num {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.trial-lesson-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.trial-lesson-arrow {
+  color: var(--text-3);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.trial-lesson-item:hover .trial-lesson-arrow {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+/* Homepage trial button in course banner */
+.btn-trial-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-trial-sm:hover {
+  background: rgba(200,245,96,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(200,245,96,0.15);
+}
+
+@media (max-width: 768px) {
+  .trial-modal { padding: 24px; }
+  .trial-modal-title { font-size: 18px; }
+  .trial-lesson-item { padding: 12px; gap: 10px; }
+  .trial-lesson-play { width: 36px; height: 36px; }
+  .trial-lesson-name { font-size: 13px; }
+}
